@@ -15,6 +15,7 @@ class RandomDogViewController: UIViewController {
     @IBOutlet var reloadButton: UIBarButtonItem!
     @IBOutlet var breedLabel: UILabel!
     
+    var dataController: DataController!
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     override func viewDidLoad() {
