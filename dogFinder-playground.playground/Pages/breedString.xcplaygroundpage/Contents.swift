@@ -11,7 +11,10 @@ let breedURLArray = [
     "https://images.dog.ceo/breeds/akita/512px-Akita_inu.jpeg"
 ]
 
-let dogBreed = breedURLArray[6]
+let dogBreed0 = breedURLArray[0]
+let dogBreed1 = breedURLArray[1]
+
+var favoriteDogs = [String: String]()
 
 func getBreedAndSubBreed(urlString: String) -> [String] {
     var stringArray = [String]()
@@ -34,9 +37,22 @@ func getBreedAndSubBreed(urlString: String) -> [String] {
         stringArray.append(subBreed)
     }
     
+    
+    
     return stringArray
 }
 
-getBreedAndSubBreed(urlString: dogBreed)
+//getBreedAndSubBreed(urlString: dogBreed0)
+
+func addToFavorites(dogURL: String) {
+    
+    let breedAndSubBreed = getBreedAndSubBreed(urlString: dogURL)
+    let breed = breedAndSubBreed[0]
+    
+    favoriteDogs.updateValue(dogURL, forKey: breed)
+    print(favoriteDogse)
+}
+
+addToFavorites(dogURL: dogBreed1)
 
 //: [Next](@next)
