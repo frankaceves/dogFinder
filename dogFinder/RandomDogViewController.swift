@@ -14,6 +14,7 @@ class RandomDogViewController: UIViewController {
     @IBOutlet var randomDogImageView: UIImageView!
     @IBOutlet var reloadButton: UIBarButtonItem!
     @IBOutlet var breedLabel: UILabel!
+    @IBOutlet weak var favoritesButton: UIBarButtonItem!
     
     var dataController: DataController!
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
