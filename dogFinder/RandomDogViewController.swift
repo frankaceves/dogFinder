@@ -98,6 +98,9 @@ class RandomDogViewController: UIViewController {
         }
     }
     
+    @IBAction func favoritesButtonPressed(_ sender: Any) {
+        print("favoritesButton Pressed")
+    }
     
     func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?,_ urlString: String?, _ error: String?) -> Void) {
         //print("showRandomDog called")

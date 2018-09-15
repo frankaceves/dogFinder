@@ -53,11 +53,16 @@
                                     <action selector="randomDogButtonPressed:" destination="Yxr-Ra-mwD" id="MOa-fr-q52"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="Favorite" id="hs5-S1-38L" userLabel="Favorites Button"/>
+                            <barButtonItem title="Item" image="Favorite" id="hs5-S1-38L" userLabel="Favorites Button">
+                                <connections>
+                                    <action selector="favoritesButtonPressed:" destination="Yxr-Ra-mwD" id="1dK-4D-EaA"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="breedLabel" destination="vyD-6M-OfG" id="8o0-3E-SPA"/>
+                        <outlet property="favoritesButton" destination="hs5-S1-38L" id="HdJ-3W-nMr"/>
                         <outlet property="randomDogImageView" destination="Ycs-Na-QiK" id="WJo-XV-Qwy"/>
                         <outlet property="reloadButton" destination="g0u-ow-8Y5" id="QTy-zG-MfJ"/>
                     </connections>
