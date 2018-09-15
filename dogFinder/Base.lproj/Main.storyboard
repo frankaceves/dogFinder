@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,11 +47,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dog Finder" id="UIZ-G0-CAJ">
                         <barButtonItem key="backBarButtonItem" title="Back" id="3BX-o3-1cM"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="g0u-ow-8Y5">
-                            <connections>
-                                <action selector="randomDogButtonPressed:" destination="Yxr-Ra-mwD" id="MOa-fr-q52"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="g0u-ow-8Y5">
+                                <connections>
+                                    <action selector="randomDogButtonPressed:" destination="Yxr-Ra-mwD" id="MOa-fr-q52"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="Favorite" id="hs5-S1-38L" userLabel="Favorites Button"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="breedLabel" destination="vyD-6M-OfG" id="8o0-3E-SPA"/>
@@ -150,4 +154,7 @@
             <point key="canvasLocation" x="562" y="464"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Favorite" width="32" height="32"/>
+    </resources>
 </document>
