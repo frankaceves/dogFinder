@@ -19,6 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         dataController.load()
         
+        // inject Data Controller into RandomDogVC
+        let tabBarViewController = window?.rootViewController as? UITabBarController
+        
+        if let childViewControllers = tabBarViewController?.childViewControllers as! [UINavigationController]! {
+            //injecting dataController into "Search" tab for now. Will need to inject into Favorites?
+            let firstChild = childViewControllers[0]
+            let randomDogViewController = firstChild.topViewController as! RandomDogViewController
+            randomDogViewController.dataController = dataController
+        }
+        
         
         return true
     }
