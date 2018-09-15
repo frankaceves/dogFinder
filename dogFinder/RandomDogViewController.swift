@@ -21,8 +21,14 @@ class RandomDogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print("viewDidLoad")
         randomDogImageView.image = nil
         breedLabel.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("viewWillAppear")
     }
 
     struct RandomDog: Decodable {
