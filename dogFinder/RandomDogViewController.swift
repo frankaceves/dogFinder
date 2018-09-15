@@ -99,7 +99,12 @@ class RandomDogViewController: UIViewController {
     }
     
     @IBAction func favoritesButtonPressed(_ sender: Any) {
-        print("favoritesButton Pressed")
+        
+        if favoritesButton.tintColor == nil {
+            favoritesButton.tintColor = UIColor.red
+        } else {
+            favoritesButton.tintColor = nil
+        }
     }
     
     func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?,_ urlString: String?, _ error: String?) -> Void) {
