@@ -59,6 +59,9 @@ class RandomDogViewController: UIViewController {
     let randomDogAPIString = "https://dog.ceo/api/breeds/image/random"
     
     @IBAction func randomDogButtonPressed(_ sender: Any) {
+        tempDog.removeAll()
+        favoritesButton.tintColor = nil
+        
         activityIndicator.color = UIColor.blue
         activityIndicator.frame = randomDogImageView.bounds
         randomDogImageView.addSubview(activityIndicator)
@@ -98,6 +101,10 @@ class RandomDogViewController: UIViewController {
                 self.breedLabel.isHidden = false
                 self.activityIndicator.stopAnimating()
             }
+            
+            self.tempDog.updateValue(breedArray[0], forKey: urlString)
+            //print("tempDog keys after image DL: \(self.tempDog)")
+            
         }
     }
     
