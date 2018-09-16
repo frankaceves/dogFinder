@@ -109,11 +109,20 @@ class RandomDogViewController: UIViewController {
     }
     
     @IBAction func favoritesButtonPressed(_ sender: Any) {
-        
+        //toggle tint
+        //add tempDog to favoritesArray
+        //clear tempDog
         if favoritesButton.tintColor == nil {
             favoritesButton.tintColor = UIColor.red
+            favoriteDogs.append(tempDog)
+            //tempDog.removeAll()
+            print("***AFTER ADD***\nfavDogsCount: \(favoriteDogs.count)\nfavDogs: \(favoriteDogs)")
+            print("tempDog: \(tempDog)")
         } else {
             favoritesButton.tintColor = nil
+            favoriteDogs.removeLast()
+            print("***AFTER REMOVE***\nfavDogsCount: \(favoriteDogs.count)\nfavDogs: \(favoriteDogs)")
+            print("tempDog: \(tempDog)")
         }
     }
     
