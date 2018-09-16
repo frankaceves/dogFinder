@@ -43,15 +43,25 @@ class FavoritesTableViewController: UITableViewController {
         return FavoriteDogsTEMP.sharedInstance.favoriteDogs.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath)
+        let dog = FavoriteDogsTEMP.sharedInstance.favoriteDogs[indexPath.row]
+        print("dog: \(dog)")
         // Configure the cell...
-
+        for (key,value) in dog {
+            cell.textLabel?.text = "Breed: \(value)"
+            
+            let dogURL = URL(string: key)
+            if let dogData = try? Data(contentsOf: dogURL!) {
+                let dogImage = UIImage(data: dogData)
+                cell.imageView?.image = dogImage
+            }
+            
+        }
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
