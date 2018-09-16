@@ -19,6 +19,9 @@ class RandomDogViewController: UIViewController {
     var dataController: DataController!
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
+    var favoriteDogs = [[String: String]]()
+    var tempDog: [String: String] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
