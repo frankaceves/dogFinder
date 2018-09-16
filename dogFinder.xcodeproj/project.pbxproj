@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822B13F214E083D00986774 /* FavoritesTableViewController.swift */; };
 		28827CAB213F828C003EBC8F /* shiba-8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 28827CAA213F828C003EBC8F /* shiba-8.JPG */; };
 		7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A8CA214D8258009496CF /* DogFinder.xcdatamodeld */; };
 		7C96A8CF214D8600009496CF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A8CE214D8600009496CF /* DataController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2822B13F214E083D00986774 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		28827CAA213F828C003EBC8F /* shiba-8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "shiba-8.JPG"; sourceTree = "<group>"; };
 		7C96A8CB214D8258009496CF /* DogFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogFinder.xcdatamodel; sourceTree = "<group>"; };
 		7C96A8CE214D8600009496CF /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				28827CA9213F8268003EBC8F /* Test Photos */,
 				7CBA0923213E19CF00B96781 /* AppDelegate.swift */,
 				7CBA0925213E19CF00B96781 /* RandomDogViewController.swift */,
+				2822B13F214E083D00986774 /* FavoritesTableViewController.swift */,
 				7CBA0927213E19CF00B96781 /* Main.storyboard */,
 				7CBA092A213E19CF00B96781 /* Assets.xcassets */,
 				7CBA092C213E19CF00B96781 /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 				7CBA0926213E19CF00B96781 /* RandomDogViewController.swift in Sources */,
 				7C96A8CF214D8600009496CF /* DataController.swift in Sources */,
 				7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */,
+				2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */,
 				7CBA0924213E19CF00B96781 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
