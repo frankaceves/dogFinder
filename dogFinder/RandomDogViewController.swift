@@ -114,14 +114,16 @@ class RandomDogViewController: UIViewController {
         //clear tempDog
         if favoritesButton.tintColor == nil {
             favoritesButton.tintColor = UIColor.red
-            favoriteDogs.append(tempDog)
+            //favoriteDogs.append(tempDog)
+            FavoriteDogsTEMP.sharedInstance.favoriteDogs.append(tempDog)
             //tempDog.removeAll()
-            print("***AFTER ADD***\nfavDogsCount: \(favoriteDogs.count)\nfavDogs: \(favoriteDogs)")
+            print("***AFTER ADD***\nfavDogsCount: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs.count)\nfavDogs: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs)")
             print("tempDog: \(tempDog)")
         } else {
             favoritesButton.tintColor = nil
-            favoriteDogs.removeLast()
-            print("***AFTER REMOVE***\nfavDogsCount: \(favoriteDogs.count)\nfavDogs: \(favoriteDogs)")
+            //favoriteDogs.removeLast()
+            FavoriteDogsTEMP.sharedInstance.favoriteDogs.removeLast()
+            print("***AFTER REMOVE***\nfavDogsCount: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs.count)\nfavDogs: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs)")
             print("tempDog: \(tempDog)")
         }
     }
@@ -227,6 +229,8 @@ class RandomDogViewController: UIViewController {
         
         return stringArray
     }
+    
+    
 
 
 }
