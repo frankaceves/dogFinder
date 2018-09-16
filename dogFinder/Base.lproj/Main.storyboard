@@ -74,7 +74,7 @@
         <!--Favorites Table View Controller-->
         <scene sceneID="fG7-ic-7nt">
             <objects>
-                <tableViewController id="Zhq-FN-5Gs" userLabel="Favorites Table View Controller" sceneMemberID="viewController">
+                <tableViewController id="Zhq-FN-5Gs" userLabel="Favorites Table View Controller" customClass="FavoritesTableViewController" customModule="dogFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jX6-OI-Ysg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
