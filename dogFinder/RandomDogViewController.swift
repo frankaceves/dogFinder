@@ -32,7 +32,7 @@ class RandomDogViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("viewWillAppear")
+        print("viewWillAppear RandomDogVC")
     }
 
     struct RandomDog: Decodable {
