@@ -161,7 +161,7 @@ class RandomDogViewController: UIViewController {
                 
             }
             
-        }
+        }.resume()
         
     }
     
@@ -188,7 +188,6 @@ class RandomDogViewController: UIViewController {
             self.convertToJSONFrom(randomDogData: data, completionForJSONConversion: completionForGet)
             
         }
-        task.resume()
         return task
     }
     // convert data to JSON
