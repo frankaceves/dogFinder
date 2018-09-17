@@ -28,6 +28,7 @@ class RandomDogViewController: UIViewController {
         print("viewDidLoad")
         randomDogImageView.image = nil
         breedLabel.isHidden = true
+        favoritesButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +100,7 @@ class RandomDogViewController: UIViewController {
                 self.randomDogImageView.alpha = 1.0
                 self.breedLabel.text = "Breed: \(breedArray[0])"
                 self.breedLabel.isHidden = false
+                self.favoritesButton.isEnabled = true
                 self.activityIndicator.stopAnimating()
             }
             
