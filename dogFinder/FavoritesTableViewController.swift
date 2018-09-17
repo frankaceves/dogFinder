@@ -9,10 +9,12 @@
 import UIKit
 
 class FavoritesTableViewController: UITableViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -45,21 +47,27 @@ class FavoritesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath) as! FavoriteDogTableViewCell
         let dog = FavoriteDogsTEMP.sharedInstance.favoriteDogs[indexPath.row]
         print("dog: \(dog)")
         // Configure the cell...
+        
+        
         for (key,value) in dog {
-            cell.textLabel?.text = "Breed: \(value)"
+            cell.favoriteDogBreedLabel.text = "Breed: \(value)"
             
             let dogURL = URL(string: key)
             if let dogData = try? Data(contentsOf: dogURL!) {
                 let dogImage = UIImage(data: dogData)
-                cell.imageView?.image = dogImage
+                cell.favoriteDogImageView.image = dogImage
             }
             
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
 
