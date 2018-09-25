@@ -30,6 +30,7 @@ class RandomDogViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         print("viewDidLoad")
         breedLabel.isHidden = true
+        breedSegControl.isHidden = true
         favoritesButton.isEnabled = false
     }
     
@@ -81,12 +82,13 @@ class RandomDogViewController: UIViewController {
     @IBAction func randomDogButtonPressed(_ sender: Any) {
         tempDog.removeAll()
         favoritesButton.tintColor = nil
-        
+        breedSegControl.isEnabled = false
         activityIndicator.color = UIColor.blue
         activityIndicator.frame = randomDogImageView.bounds
         randomDogImageView.addSubview(activityIndicator)
         randomDogImageView.alpha = 0.5
         activityIndicator.startAnimating()
+        breedSegControl.selectedSegmentIndex = 0
         
         showRandomDog { (image, urlString, error) in
             guard error == nil else {
@@ -115,6 +117,8 @@ class RandomDogViewController: UIViewController {
             self.breedArray = self.getBreedAndSubBreed(urlString: urlString)
             
             DispatchQueue.main.async {
+                self.breedSegControl.isHidden = false
+                self.breedSegControl.isEnabled = true
                 self.randomDogImageView.image = image
                 self.randomDogImageView.alpha = 1.0
                 self.breedLabel.text = "Breed: \(self.breedArray[0])"
