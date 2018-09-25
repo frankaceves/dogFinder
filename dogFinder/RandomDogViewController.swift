@@ -21,6 +21,7 @@ class RandomDogViewController: UIViewController {
     
     var favoriteDogs = [[String: String]]()
     var tempDog: [String: String] = [:]
+    var breedArray: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +93,7 @@ class RandomDogViewController: UIViewController {
                 return
             }
             
-            let breedArray = self.getBreedAndSubBreed(urlString: urlString)
+            self.breedArray = self.getBreedAndSubBreed(urlString: urlString)
             
             DispatchQueue.main.async {
                 self.randomDogImageView.image = image
