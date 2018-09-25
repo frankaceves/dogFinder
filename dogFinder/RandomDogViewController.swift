@@ -197,9 +197,14 @@ class RandomDogViewController: UIViewController {
                 return
             }
             
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode <= 200 else {
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
                 //print("status code was not 200 or lower")
-                completionForGet(nil, "status code was not 200 or lower")
+                completionForGet(nil, "no status code returned")
+                return
+            }
+            
+            if statusCode < 200 {
+                completionForGet(nil, "Status code was not lower than 200: \(statusCode)")
                 return
             }
             
