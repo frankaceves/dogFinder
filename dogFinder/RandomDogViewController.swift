@@ -66,13 +66,11 @@ class RandomDogViewController: UIViewController {
         switch breedSegControl.selectedSegmentIndex {
         case 1:
             if breedArray.count > 1 {
-                print("seg index: \(breedSegControl.selectedSegmentIndex)\nSubBreed: \(breedArray[1])")
                 breedLabel.text = "Sub-Breed: \(breedArray[1])"
             } else {
                 breedLabel.text = "No Sub-Breed Found"
             }
         default:
-            print("BREED SEG -> seg index: \(breedSegControl.selectedSegmentIndex)\nDog: \(tempDog)")
             if breedLabel.text != breedArray[0] {
                 breedLabel.text = "Breed: \(breedArray[0])"
             }
