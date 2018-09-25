@@ -61,6 +61,23 @@ class RandomDogViewController: UIViewController {
     //RANDOM DOG JSON
     let randomDogAPIString = "https://dog.ceo/api/breeds/image/random"
     
+    @IBAction func showBreedOrSubBreed(_ sender: UISegmentedControl) {
+        switch breedSegControl.selectedSegmentIndex {
+        case 1:
+            if breedArray.count > 1 {
+                print("seg index: \(breedSegControl.selectedSegmentIndex)\nSubBreed: \(breedArray[1])")
+                breedLabel.text = "Sub-Breed: \(breedArray[1])"
+            } else {
+                breedLabel.text = "No Sub-Breed Found"
+            }
+        default:
+            print("BREED SEG -> seg index: \(breedSegControl.selectedSegmentIndex)\nDog: \(tempDog)")
+            if breedLabel.text != breedArray[0] {
+                breedLabel.text = "Breed: \(breedArray[0])"
+            }
+        }
+    }
+    
     @IBAction func randomDogButtonPressed(_ sender: Any) {
         tempDog.removeAll()
         favoritesButton.tintColor = nil
