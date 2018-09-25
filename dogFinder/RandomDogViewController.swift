@@ -117,13 +117,13 @@ class RandomDogViewController: UIViewController {
             DispatchQueue.main.async {
                 self.randomDogImageView.image = image
                 self.randomDogImageView.alpha = 1.0
-                self.breedLabel.text = "Breed: \(breedArray[0])"
+                self.breedLabel.text = "Breed: \(self.breedArray[0])"
                 self.breedLabel.isHidden = false
                 self.favoritesButton.isEnabled = true
                 self.activityIndicator.stopAnimating()
             }
             
-            self.tempDog.updateValue(breedArray[0], forKey: urlString)
+            self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
             //print("tempDog keys after image DL: \(self.tempDog)")
             
         }
