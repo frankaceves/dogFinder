@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let firstChild = childViewControllers[0]
             let randomDogViewController = firstChild.topViewController as! RandomDogViewController
             randomDogViewController.dataController = dataController
+            
+            let secondChild = childViewControllers[1]
+            let favoritesTableViewController = secondChild.topViewController as! FavoritesTableViewController
+            favoritesTableViewController.dataController = dataController
         }
         
         
