@@ -41,7 +41,15 @@ class FavoritesTableViewController: UITableViewController {
         let sortDescriptor = NSSortDescriptor(key: "breed", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
+        do {
+            try fetchedResultsController.performFetch()
+            print("success fetching favorites in FavTableVC?")
+            print("fetchedObjects FTVC: \(String(describing: fetchedResultsController.fetchedObjects?.count))")
+        } catch {
+            fatalError("error fetching favorites in FavTableVC: \(error.localizedDescription)")
+        }
     }
 
     // MARK: - Table view data source
