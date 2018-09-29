@@ -84,6 +84,18 @@ class FavoritesTableViewController: UITableViewController {
             }
             
         }
+        
+        // Configure the cell...
+//        for (key,value) in dog {
+//            cell.favoriteDogBreedLabel.text = "Breed: \(value)"
+//
+//            let dogURL = URL(string: key)
+//            if let dogData = try? Data(contentsOf: dogURL!) {
+//                let dogImage = UIImage(data: dogData)
+//                cell.favoriteDogImageView.image = dogImage
+//            }
+//
+//        }
         return cell
     }
     
