@@ -152,6 +152,32 @@ class RandomDogViewController: UIViewController {
         }
     }
     
+    func addDog(dogInfo: [String:String]) {
+        //get components of dogInfo = [urlString: Breed]
+        var url: String!
+        var breed: String!
+        
+        for (x, y) in dogInfo {
+            url = x
+            breed = y
+        }
+        
+        //create FavoriteDog entity
+        let dog = FavoriteDog(context: dataController.viewContext)
+        
+        //assign attributes
+        dog.photoURL = url
+        dog.breed = breed
+        
+        //save context
+        do {
+            try dataController.viewContext.save()
+            print("dog saved?")
+        } catch {
+            fatalError("could not save Dog entity: \(error.localizedDescription)")
+        }
+    }
+    
     @IBAction func favoritesButtonPressed(_ sender: Any) {
         //toggle tint
         //add tempDog to favoritesArray
