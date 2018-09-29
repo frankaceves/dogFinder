@@ -38,6 +38,7 @@ class RandomDogViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print("viewWillAppear RandomDogVC")
+        setupFetchedResultsController()
     }
 
     struct RandomDog: Decodable {
