@@ -11,6 +11,7 @@ import CoreData
 
 class FavoritesTableViewController: UITableViewController {
     var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
+    var dataController: DataController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
