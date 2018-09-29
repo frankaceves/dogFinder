@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class FavoritesTableViewController: UITableViewController {
-    
+    var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
