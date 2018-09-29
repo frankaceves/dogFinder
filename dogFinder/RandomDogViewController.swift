@@ -148,6 +148,7 @@ class RandomDogViewController: UIViewController {
             
             self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
             //print("tempDog keys after image DL: \(self.tempDog)")
+            print("tempDog info: \(self.tempDog)")
             
         }
     }
@@ -186,7 +187,7 @@ class RandomDogViewController: UIViewController {
             favoritesButton.tintColor = UIColor.red
             addDog(dogInfo: tempDog)
             FavoriteDogsTEMP.sharedInstance.favoriteDogs.append(tempDog)
-            //tempDog.removeAll()
+            
             print("***AFTER ADD***\nfavDogsCount: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs.count)\nfavDogs: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs)")
             print("tempDog: \(tempDog)")
         } else {
