@@ -69,18 +69,26 @@ class FavoritesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath) as! FavoriteDogTableViewCell
-        let dog = FavoriteDogsTEMP.sharedInstance.favoriteDogs[indexPath.row]
-        print("dog: \(dog)")
-        // Configure the cell...
+        //let dog = FavoriteDogsTEMP.sharedInstance.favoriteDogs[indexPath.row]
+        let dog = fetchedResultsController.fetchedObjects![indexPath.row]
+        //print("dog BEFORE saving/configuring: \(dog)")
+        // Configure cell from CoreData
+        cell.favoriteDogBreedLabel.text = "Breed: \(dog.breed ?? "No Breed Info Available")"
         
-        
-        for (key,value) in dog {
-            cell.favoriteDogBreedLabel.text = "Breed: \(value)"
-            
-            let dogURL = URL(string: key)
-            if let dogData = try? Data(contentsOf: dogURL!) {
+        if let dogURL = URL(string: dog.photoURL!) {
+            if let dogData = try? Data(contentsOf: dogURL) {
                 let dogImage = UIImage(data: dogData)
+                
                 cell.favoriteDogImageView.image = dogImage
+                // save binary data to coreData entity
+                dog.imageData = dogData
+                
+                do {
+                    try dataController.viewContext.save()
+                    //print("dog AFTER saving/configuring: \(dog)")
+                } catch {
+                    fatalError("error saving dogData: \(error.localizedDescription)")
+                }
             }
             
         }
