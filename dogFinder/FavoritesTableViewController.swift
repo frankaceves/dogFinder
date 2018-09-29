@@ -33,6 +33,15 @@ class FavoritesTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - CORE DATA
+    fileprivate func setupFetchedResultsController() {
+        let fetchRequest: NSFetchRequest<FavoriteDog> = FavoriteDog.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "breed", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        
+    }
 
     // MARK: - Table view data source
 
