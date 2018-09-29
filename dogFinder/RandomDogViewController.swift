@@ -63,6 +63,10 @@ class RandomDogViewController: UIViewController {
     //RANDOM DOG JSON
     let randomDogAPIString = "https://dog.ceo/api/breeds/image/random"
     
+    // MARK: - CORE DATA RELATED
+    
+    
+    // MARK: - ACTIONS
     @IBAction func showBreedOrSubBreed(_ sender: UISegmentedControl) {
         switch breedSegControl.selectedSegmentIndex {
         case 1:
