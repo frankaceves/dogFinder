@@ -17,6 +17,7 @@ class RandomDogViewController: UIViewController {
     @IBOutlet weak var favoritesButton: UIBarButtonItem!
     @IBOutlet weak var breedSegControl: UISegmentedControl!
     
+    var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
     
     var dataController: DataController!
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
