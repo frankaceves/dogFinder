@@ -64,7 +64,19 @@ class RandomDogViewController: UIViewController {
     let randomDogAPIString = "https://dog.ceo/api/breeds/image/random"
     
     // MARK: - CORE DATA RELATED
-    
+    fileprivate func setupFetchedResultsController() {
+        let fetchRequest: NSFetchRequest<FavoriteDog> = FavoriteDog.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "breed", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+    }
     
     // MARK: - ACTIONS
     @IBAction func showBreedOrSubBreed(_ sender: UISegmentedControl) {
