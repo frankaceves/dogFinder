@@ -184,7 +184,7 @@ class RandomDogViewController: UIViewController {
         //clear tempDog
         if favoritesButton.tintColor == nil {
             favoritesButton.tintColor = UIColor.red
-            //favoriteDogs.append(tempDog)
+            addDog(dogInfo: tempDog)
             FavoriteDogsTEMP.sharedInstance.favoriteDogs.append(tempDog)
             //tempDog.removeAll()
             print("***AFTER ADD***\nfavDogsCount: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs.count)\nfavDogs: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs)")
