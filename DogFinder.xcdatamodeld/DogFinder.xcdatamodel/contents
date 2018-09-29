@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G1510" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FavoriteDog" representedClassName="FavoriteDog" syncable="YES" codeGenerationType="class">
-        <attribute name="breed" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="dogPhoto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="dog" inverseEntity="Photo" syncable="YES"/>
-    </entity>
-    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class">
-        <attribute name="breed" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dogImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="breed" attributeType="String" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="photoURL" attributeType="String" syncable="YES"/>
         <attribute name="subBreed" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="dog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteDog" inverseName="dogPhoto" inverseEntity="FavoriteDog" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FavoriteDog" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Photo" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="FavoriteDog" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
