@@ -91,8 +91,8 @@
 		7CBA0922213E19CF00B96781 /* dogFinder */ = {
 			isa = PBXGroup;
 			children = (
-				7C367F0B214ED5480058C888 /* View */,
 				7C96A8CD214D85C9009496CF /* Model */,
+				7C367F0B214ED5480058C888 /* View */,
 				28827CA9213F8268003EBC8F /* Test Photos */,
 				7CBA0923213E19CF00B96781 /* AppDelegate.swift */,
 				7CBA0925213E19CF00B96781 /* RandomDogViewController.swift */,
