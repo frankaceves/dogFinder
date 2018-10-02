@@ -10,4 +10,6 @@ import Foundation
 
 class DogClient: NSObject {
     
+    
+    static let sharedInstance = DogClient()
 }
