@@ -19,6 +19,7 @@
 		7CBA092B213E19CF00B96781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA092A213E19CF00B96781 /* Assets.xcassets */; };
 		7CBA092E213E19CF00B96781 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA092C213E19CF00B96781 /* LaunchScreen.storyboard */; };
 		7CCF5EB821630B3600A95D90 /* DogClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF5EB721630B3600A95D90 /* DogClient.swift */; };
+		7CCF5EBA21630BD400A95D90 /* DogConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF5EB921630BD400A95D90 /* DogConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		7CBA092D213E19CF00B96781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CBA092F213E19CF00B96781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CCF5EB721630B3600A95D90 /* DogClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogClient.swift; sourceTree = "<group>"; };
+		7CCF5EB921630BD400A95D90 /* DogConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				7C96A8CE214D8600009496CF /* DataController.swift */,
 				7CCF5EB721630B3600A95D90 /* DogClient.swift */,
+				7CCF5EB921630BD400A95D90 /* DogConstants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */,
 				7CCF5EB821630B3600A95D90 /* DogClient.swift in Sources */,
 				2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */,
+				7CCF5EBA21630BD400A95D90 /* DogConstants.swift in Sources */,
 				2822B142214E0F1B00986774 /* FavoriteDogsTEMP.swift in Sources */,
 				7CBA0924213E19CF00B96781 /* AppDelegate.swift in Sources */,
 				7C367F0D214ED56D0058C888 /* FavoriteDogTableViewCell.swift in Sources */,
