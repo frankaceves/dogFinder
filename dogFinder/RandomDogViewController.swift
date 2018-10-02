@@ -148,7 +148,6 @@ class RandomDogViewController: UIViewController {
             }
             
             self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
-            //print("tempDog keys after image DL: \(self.tempDog)")
             print("tempDog info: \(self.tempDog)")
             
         }
