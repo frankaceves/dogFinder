@@ -74,24 +74,57 @@ class FavoritesTableViewController: UITableViewController {
         //print("dog BEFORE saving/configuring: \(dog)")
         // Configure cell from CoreData
         cell.favoriteDogBreedLabel.text = "Breed: \(dog.breed ?? "No Breed Info Available")"
+        //cell.imageView?.image = nil
         
-        if let dogURL = URL(string: dog.photoURL!) {
-            if let dogData = try? Data(contentsOf: dogURL) {
-                let dogImage = UIImage(data: dogData)
-                
-                cell.favoriteDogImageView.image = dogImage
-                // save binary data to coreData entity
-                dog.imageData = dogData
-                
-                do {
-                    try dataController.viewContext.save()
-                    //print("dog AFTER saving/configuring: \(dog)")
-                } catch {
-                    fatalError("error saving dogData: \(error.localizedDescription)")
-                }
+        if dog.imageData != nil {
+            let dogImage = UIImage(data: dog.imageData!)
+            cell.favoriteDogImageView.image = dogImage
+            return cell
+        } else {
+            DispatchQueue.global(qos: .background).async {
+                DogClient.sharedInstance.getDogDataFrom(dogImageUrl: dog.photoURL!, completionForGetDogData: { (dogData, error) in
+                    guard (error == nil) else {
+                        print("there was an error - cellForRow")
+                        return
+                    }
+                    
+                    guard let data = dogData else {
+                        print("no data - cellForRow")
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        let dogImage = UIImage(data: data)
+                        cell.favoriteDogImageView.image = dogImage
+                        dog.imageData = data
+                        
+                        do {
+                            try self.dataController.viewContext.save()
+                        } catch {
+                            print("error saving in cellforItem: \(error.localizedDescription)")
+                        }
+                    }
+                })
             }
-            
         }
+        
+//        if let dogURL = URL(string: dog.photoURL!) {
+//            if let dogData = try? Data(contentsOf: dogURL) {
+//                let dogImage = UIImage(data: dogData)
+//
+//                cell.favoriteDogImageView.image = dogImage
+//                // save binary data to coreData entity
+//                dog.imageData = dogData
+//
+//                do {
+//                    try dataController.viewContext.save()
+//                    //print("dog AFTER saving/configuring: \(dog)")
+//                } catch {
+//                    fatalError("error saving dogData: \(error.localizedDescription)")
+//                }
+//            }
+//
+//        }
         
         // Configure the cell...
 //        for (key,value) in dog {
