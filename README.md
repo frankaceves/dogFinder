@@ -11,3 +11,7 @@ This app is my capstone project for Udacity's [iOS Nanodegree Program](https://u
 * Click the Breed or Sub-breed button to view information about the current dog photo.
 * Add current dog to a list of favorites by clicking the heart shaped button.
 * Click the "Favorites" tab to view a table collection of favorited dogs.
+
+## Acknowledgements
+
+This app utilizes the [Ashley Mills Reachability](https://github.com/ashleymills/Reachability.swift) solution, to determine if user's device has lost connectivity.
