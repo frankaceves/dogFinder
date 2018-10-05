@@ -35,10 +35,49 @@ class RandomDogViewController: UIViewController {
         favoritesButton.isEnabled = false
     }
     
+    let reachability = Reachability()!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print("viewWillAppear RandomDogVC")
         setupFetchedResultsController()
+        
+        //add reachability observer
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("could not start reachability notifier: \(error.localizedDescription)")
+        }
+    }
+    
+    @objc func reachabilityChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        
+        switch reachability.connection {
+        case .wifi:
+            print("Reachable via Wifi")
+            reloadButton.isEnabled = true
+            favoritesButton.isEnabled = true
+            self.view.alpha = 1.0
+        case .cellular:
+            print("Reachable via Cellular")
+            reloadButton.isEnabled = true
+            favoritesButton.isEnabled = true
+            self.view.alpha = 1.0
+        case .none:
+            print("Network not reachable")
+            let ac = UIAlertController(title: "Network Error", message: "Your phone has lost its connection", preferredStyle: .alert)
+            ac.addAction(okAction)
+            
+            reloadButton.isEnabled = false
+            favoritesButton.isEnabled = false
+            self.view.alpha = 0.25
+            
+            present(ac, animated: true, completion: nil)
+        }
     }
 
     struct RandomDog: Decodable {
