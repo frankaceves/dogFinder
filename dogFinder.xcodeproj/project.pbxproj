@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2808E7DF2167062F00CF285E /* Reachability1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2808E7DE2167062F00CF285E /* Reachability1.swift */; };
 		2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822B13F214E083D00986774 /* FavoritesTableViewController.swift */; };
 		2822B142214E0F1B00986774 /* FavoriteDogsTEMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822B141214E0F1B00986774 /* FavoriteDogsTEMP.swift */; };
 		28827CAB213F828C003EBC8F /* shiba-8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 28827CAA213F828C003EBC8F /* shiba-8.JPG */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2808E7DE2167062F00CF285E /* Reachability1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability1.swift; sourceTree = "<group>"; };
 		2822B13F214E083D00986774 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		2822B141214E0F1B00986774 /* FavoriteDogsTEMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDogsTEMP.swift; sourceTree = "<group>"; };
 		28827CAA213F828C003EBC8F /* shiba-8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "shiba-8.JPG"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				7C96A8CE214D8600009496CF /* DataController.swift */,
 				7CCF5EB721630B3600A95D90 /* DogClient.swift */,
 				7CCF5EB921630BD400A95D90 /* DogConstants.swift */,
+				2808E7DE2167062F00CF285E /* Reachability1.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				7CCF5EBA21630BD400A95D90 /* DogConstants.swift in Sources */,
 				2822B142214E0F1B00986774 /* FavoriteDogsTEMP.swift in Sources */,
 				7CBA0924213E19CF00B96781 /* AppDelegate.swift in Sources */,
+				2808E7DF2167062F00CF285E /* Reachability1.swift in Sources */,
 				7C367F0D214ED56D0058C888 /* FavoriteDogTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
