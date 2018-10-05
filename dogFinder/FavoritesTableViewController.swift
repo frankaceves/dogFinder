@@ -24,16 +24,54 @@ class FavoritesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    let reachability = Reachability()!
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("View will appear: FavoritesTableVC")
         setupFetchedResultsController()
         tableView.reloadData()
+        //add reachability observer
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("could not start reachability notifier: \(error.localizedDescription)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func reachabilityChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        
+        switch reachability.connection {
+        case .wifi:
+            print("Reachable via Wifi")
+            self.view.alpha = 1.0
+        case .cellular:
+            print("Reachable via Cellular")
+            self.view.alpha = 1.0
+        case .none:
+            print("Network not reachable")
+            let ac = UIAlertController(title: "Network Error", message: "Your phone has lost its connection", preferredStyle: .alert)
+            ac.addAction(okAction)
+            
+            self.view.alpha = 0.25
+            
+            present(ac, animated: true, completion: nil)
+        }
     }
     
     // MARK: - CORE DATA
