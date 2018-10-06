@@ -55,6 +55,8 @@ class RandomDogViewController: UIViewController {
         } catch {
             print("could not start reachability notifier: \(error.localizedDescription)")
         }
+        
+        randomDogButtonPressed(self)
     }
     
     @objc func reachabilityChanged(note: Notification) {
