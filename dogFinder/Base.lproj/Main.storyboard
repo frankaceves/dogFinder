@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="instruction-image2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ycs-Na-QiK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ycs-Na-QiK">
                                 <rect key="frame" x="0.0" y="112" width="375" height="460.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyD-6M-OfG" userLabel="Breed Label">
@@ -199,6 +199,5 @@
     </scenes>
     <resources>
         <image name="Favorite" width="32" height="32"/>
-        <image name="instruction-image2.png" width="750" height="822"/>
     </resources>
 </document>
