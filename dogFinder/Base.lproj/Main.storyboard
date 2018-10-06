@@ -104,16 +104,15 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MX5-kH-r7M">
-                                            <rect key="frame" x="155" y="65" width="210" height="20.5"/>
+                                            <rect key="frame" x="155" y="65.5" width="210" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="MX5-kH-r7M" firstAttribute="centerY" secondItem="OUm-yX-yUD" secondAttribute="centerY" id="0bC-jv-Sur"/>
                                         <constraint firstItem="MX5-kH-r7M" firstAttribute="leading" secondItem="OUm-yX-yUD" secondAttribute="trailing" constant="5" id="3bx-PH-5M0"/>
-                                        <constraint firstItem="MX5-kH-r7M" firstAttribute="centerY" secondItem="2nx-we-1av" secondAttribute="centerY" id="IUg-mD-KOy"/>
-                                        <constraint firstItem="OUm-yX-yUD" firstAttribute="centerY" secondItem="2nx-we-1av" secondAttribute="centerY" id="KLQ-a2-ypz"/>
                                         <constraint firstAttribute="bottom" secondItem="OUm-yX-yUD" secondAttribute="bottom" id="RxK-XQ-9VM"/>
                                         <constraint firstItem="OUm-yX-yUD" firstAttribute="leading" secondItem="2nx-we-1av" secondAttribute="leading" id="e9c-jR-u6l"/>
                                         <constraint firstAttribute="trailing" secondItem="MX5-kH-r7M" secondAttribute="trailing" constant="10" id="sZr-cj-po7"/>
