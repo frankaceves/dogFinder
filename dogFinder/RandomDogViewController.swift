@@ -32,6 +32,8 @@ class RandomDogViewController: UIViewController {
         print("viewDidLoad")
         breedLabel.isHidden = true
         breedSegControl.isHidden = true
+        
+        randomDogButtonPressed(self)
     }
     
     let reachability = Reachability()!
@@ -56,7 +58,7 @@ class RandomDogViewController: UIViewController {
             print("could not start reachability notifier: \(error.localizedDescription)")
         }
         
-        randomDogButtonPressed(self)
+        
     }
     
     @objc func reachabilityChanged(note: Notification) {
