@@ -32,7 +32,6 @@ class RandomDogViewController: UIViewController {
         print("viewDidLoad")
         breedLabel.isHidden = true
         breedSegControl.isHidden = true
-        favoritesButton.isEnabled = false
     }
     
     let reachability = Reachability()!
