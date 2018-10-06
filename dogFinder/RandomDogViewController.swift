@@ -65,12 +65,12 @@ class RandomDogViewController: UIViewController {
         case .wifi:
             print("Reachable via Wifi")
             reloadButton.isEnabled = true
-            favoritesButton.isEnabled = true
+            favoritesButton.isEnabled = shouldEnable()
             self.view.alpha = 1.0
         case .cellular:
             print("Reachable via Cellular")
             reloadButton.isEnabled = true
-            favoritesButton.isEnabled = true
+            favoritesButton.isEnabled = shouldEnable()
             self.view.alpha = 1.0
         case .none:
             print("Network not reachable")
@@ -82,6 +82,17 @@ class RandomDogViewController: UIViewController {
             self.view.alpha = 0.25
             
             present(ac, animated: true, completion: nil)
+        }
+    }
+    
+    func shouldEnable() -> Bool {
+        //if tempDog is empty, disable buttons
+        if tempDog.isEmpty {
+            print("keeping disabled")
+            return false
+        } else {
+            print("enabling buttons")
+            return true
         }
     }
 
@@ -143,6 +154,7 @@ class RandomDogViewController: UIViewController {
     }
     
     @IBAction func randomDogButtonPressed(_ sender: Any) {
+        favoritesButton.isEnabled = false
         tempDog.removeAll()
         favoritesButton.tintColor = nil
         breedSegControl.isEnabled = false
