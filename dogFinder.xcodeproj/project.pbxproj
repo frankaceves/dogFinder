@@ -11,6 +11,7 @@
 		2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822B13F214E083D00986774 /* FavoritesTableViewController.swift */; };
 		2822B142214E0F1B00986774 /* FavoriteDogsTEMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822B141214E0F1B00986774 /* FavoriteDogsTEMP.swift */; };
 		28827CAB213F828C003EBC8F /* shiba-8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 28827CAA213F828C003EBC8F /* shiba-8.JPG */; };
+		28ED27A9216932B300471691 /* instruction-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ED27A8216932B300471691 /* instruction-image.png */; };
 		7C367F0D214ED56D0058C888 /* FavoriteDogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C367F0C214ED56D0058C888 /* FavoriteDogTableViewCell.swift */; };
 		7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A8CA214D8258009496CF /* DogFinder.xcdatamodeld */; };
 		7C96A8CF214D8600009496CF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A8CE214D8600009496CF /* DataController.swift */; };
@@ -28,6 +29,7 @@
 		2822B13F214E083D00986774 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		2822B141214E0F1B00986774 /* FavoriteDogsTEMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDogsTEMP.swift; sourceTree = "<group>"; };
 		28827CAA213F828C003EBC8F /* shiba-8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "shiba-8.JPG"; sourceTree = "<group>"; };
+		28ED27A8216932B300471691 /* instruction-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instruction-image.png"; sourceTree = "<group>"; };
 		7C367F0C214ED56D0058C888 /* FavoriteDogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDogTableViewCell.swift; sourceTree = "<group>"; };
 		7C96A8CB214D8258009496CF /* DogFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogFinder.xcdatamodel; sourceTree = "<group>"; };
 		7C96A8CE214D8600009496CF /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		28827CA9213F8268003EBC8F /* Test Photos */ = {
 			isa = PBXGroup;
 			children = (
+				28ED27A8216932B300471691 /* instruction-image.png */,
 				28827CAA213F828C003EBC8F /* shiba-8.JPG */,
 			);
 			path = "Test Photos";
@@ -178,6 +181,7 @@
 				7CBA092B213E19CF00B96781 /* Assets.xcassets in Resources */,
 				28827CAB213F828C003EBC8F /* shiba-8.JPG in Resources */,
 				7CBA0929213E19CF00B96781 /* Main.storyboard in Resources */,
+				28ED27A9216932B300471691 /* instruction-image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
