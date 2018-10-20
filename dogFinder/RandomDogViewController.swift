@@ -147,7 +147,7 @@ class RandomDogViewController: UIViewController {
         activityIndicator.startAnimating()
         breedSegControl.selectedSegmentIndex = 0
         
-        DogClient.sharedInstance.showRandomDog { (image, urlString, error) in
+        DogClient.sharedInstance.showRandomDog { (image, imageData, urlString, error) in
             
             guard error == nil else {
                 print("there was an error: \(error!)")
@@ -158,6 +158,13 @@ class RandomDogViewController: UIViewController {
                 print("no dogURL string returned from showRandomDog")
                 return
             }
+            
+            guard let imageData = imageData else {
+                print("no image data returned from showRandomDog")
+                return
+            }
+            
+            self.imageData = imageData
             
             guard let image = image else {
                 print("no photo returned")
