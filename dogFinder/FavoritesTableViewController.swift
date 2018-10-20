@@ -108,18 +108,36 @@ class FavoritesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath) as! FavoriteDogTableViewCell
-        //let dog = FavoriteDogsTEMP.sharedInstance.favoriteDogs[indexPath.row]
+        
+        
+        cell.favoriteDogImageView.image = nil
+        
+        cell.favoriteDogImageView.alpha = 1.0
+        
+        
+        activityIndicator.frame = cell.favoriteDogImageView.bounds
+        activityIndicator.backgroundColor = UIColor.blue
+        //activityIndicator.color = UIColor.darkGray
+        
+        cell.favoriteDogImageView.addSubview(activityIndicator)
+        
+        
+        
+        
         let dog = fetchedResultsController.fetchedObjects![indexPath.row]
-        //print("dog BEFORE saving/configuring: \(dog)")
+        
         // Configure cell from CoreData
         cell.favoriteDogBreedLabel.text = "Breed: \(dog.breed ?? "No Breed Info Available")"
-        //cell.imageView?.image = nil
+        
         
         if dog.imageData != nil {
+            activityIndicator.stopAnimating()
+            
             let dogImage = UIImage(data: dog.imageData!)
             cell.favoriteDogImageView.image = dogImage
             return cell
         } else {
+            activityIndicator.startAnimating()
             DispatchQueue.global(qos: .background).async {
                 DogClient.sharedInstance.getDogDataFrom(dogImageUrl: dog.photoURL!, completionForGetDogData: { (dogData, error) in
                     guard (error == nil) else {
@@ -135,6 +153,8 @@ class FavoritesTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         let dogImage = UIImage(data: data)
                         cell.favoriteDogImageView.image = dogImage
+                        cell.favoriteDogImageView.alpha = 1.0
+                        self.activityIndicator.stopAnimating()
                         dog.imageData = data
                         
                         do {
