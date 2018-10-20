@@ -11,7 +11,7 @@ import UIKit
 class DogClient: NSObject {
     
     
-    func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?,_ urlString: String?, _ error: String?) -> Void) {
+    func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?) -> Void) {
         //print("showRandomDog called")
         let randomDogURL = URL(string: Constants.APIUrls.randomDogAPIString)!
         
@@ -21,13 +21,13 @@ class DogClient: NSObject {
         taskForGetMethod(urlRequest: request) { (randomDogData, error) in
             guard (error == nil) else {
                 //print("error in taskForGet: \(error!)")
-                completionForShowRandomDog(nil, nil, "error in taskForGet: \(error!)")
+                completionForShowRandomDog(nil, nil, nil, "error in taskForGet: \(error!)")
                 return
             }
             
             guard let randomDogData = randomDogData else {
                 //print("no dog data from taskForGet")
-                completionForShowRandomDog(nil, nil, "no dog data from taskForGet")
+                completionForShowRandomDog(nil, nil, nil, "no dog data from taskForGet")
                 return
             }
             
@@ -37,9 +37,9 @@ class DogClient: NSObject {
                 if let dogImage = UIImage(data: dogData) {
                     dogPhoto = dogImage
                     //print("downloaded dog imageurl: \(randomDogURL)")
-                    completionForShowRandomDog(dogPhoto, randomDogURLString, nil)
+                    completionForShowRandomDog(dogPhoto, dogData, randomDogURLString, nil)
                 } else {
-                    completionForShowRandomDog(nil, nil, "no image present")
+                    completionForShowRandomDog(nil, nil, nil, "no image present")
                 }
                 
             }
