@@ -99,29 +99,6 @@ class RandomDogViewController: UIViewController {
             return true
         }
     }
-
-    struct RandomDog: Decodable {
-        let status: String
-        let message: String
-    }
-    
-    struct AllDogBreeds: Decodable {
-        let status: String
-        //let message: [Breed: [SubBreed]] // [breed: [subBreed]]
-        let message: [String: [String]]
-    }
-    
-    struct Breed: Decodable {
-        let breed: String
-    }
-    
-    struct SubBreed: Decodable {
-        let subBreed: [String]
-    }
-    
-    
-    //RANDOM DOG JSON
-    let randomDogAPIString = "https://dog.ceo/api/breeds/image/random"
     
     // MARK: - CORE DATA RELATED
     fileprivate func setupFetchedResultsController() {
