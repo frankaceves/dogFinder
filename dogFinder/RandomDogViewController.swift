@@ -25,6 +25,7 @@ class RandomDogViewController: UIViewController {
     var favoriteDogs = [[String: String]]()
     var tempDog: [String: String] = [:]
     var breedArray: [String]!
+    var imageData: Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
