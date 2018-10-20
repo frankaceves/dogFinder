@@ -59,7 +59,6 @@ class RandomDogViewController: UIViewController {
             print("could not start reachability notifier: \(error.localizedDescription)")
         }
         
-        
     }
     
     @objc func reachabilityChanged(note: Notification) {
@@ -68,17 +67,17 @@ class RandomDogViewController: UIViewController {
         
         switch reachability.connection {
         case .wifi:
-            print("Reachable via Wifi")
+            //print("Reachable via Wifi")
             reloadButton.isEnabled = true
             favoritesButton.isEnabled = shouldEnable()
             self.view.alpha = 1.0
         case .cellular:
-            print("Reachable via Cellular")
+            //print("Reachable via Cellular")
             reloadButton.isEnabled = true
             favoritesButton.isEnabled = shouldEnable()
             self.view.alpha = 1.0
         case .none:
-            print("Network not reachable")
+            //print("Network not reachable")
             let ac = UIAlertController(title: "Network Error", message: "Your phone has lost its connection", preferredStyle: .alert)
             ac.addAction(okAction)
             
@@ -93,10 +92,10 @@ class RandomDogViewController: UIViewController {
     func shouldEnable() -> Bool {
         //if tempDog is empty, disable buttons
         if tempDog.isEmpty {
-            print("keeping disabled")
+            //print("keeping disabled")
             return false
         } else {
-            print("enabling buttons")
+            //print("enabling buttons")
             return true
         }
     }
