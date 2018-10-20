@@ -12,6 +12,7 @@ import CoreData
 class FavoritesTableViewController: UITableViewController {
     var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
     var dataController: DataController!
+    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
