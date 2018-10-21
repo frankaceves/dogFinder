@@ -201,7 +201,15 @@ class RandomDogViewController: UIViewController {
                 self.randomDogImageView.alpha = 1.0
                 self.breedLabel.text = "Breed: \(self.breedArray[0])"
                 self.breedLabel.isHidden = false
-                self.favoritesButton.isEnabled = true
+                
+                if self.isFavorite() == true {
+                    self.favoritesButton.isEnabled = true
+                    self.favoritesButton.tintColor = UIColor.red
+                } else {
+                    self.favoritesButton.isEnabled = true
+                    self.favoritesButton.tintColor = nil
+                }
+                
                 self.activityIndicator.stopAnimating()
             }
             
