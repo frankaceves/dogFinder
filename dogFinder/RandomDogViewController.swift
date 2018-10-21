@@ -265,22 +265,19 @@ class RandomDogViewController: UIViewController {
     }
     
     @IBAction func favoritesButtonPressed(_ sender: Any) {
-        //toggle tint
-        //add tempDog to favoritesArray
-        //clear tempDog
-        if favoritesButton.tintColor == nil {
-            favoritesButton.tintColor = UIColor.red
-            addDog(dogInfo: tempDog)
-            FavoriteDogsTEMP.sharedInstance.favoriteDogs.append(tempDog)
-            
-            print("***AFTER ADD***\nfavDogsCount: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs.count)\nfavDogs: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs)")
-            print("tempDog: \(tempDog)")
-        } else {
+        //if tempDog is already a favorite
+        if isFavorite() == true {
+            //delete dog from coreData
+            //toggle tint nil
+            removeDog(dogInfo: tempDog)
             favoritesButton.tintColor = nil
-            //favoriteDogs.removeLast()
-            FavoriteDogsTEMP.sharedInstance.favoriteDogs.removeLast()
-            print("***AFTER REMOVE***\nfavDogsCount: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs.count)\nfavDogs: \(FavoriteDogsTEMP.sharedInstance.favoriteDogs)")
-            print("tempDog: \(tempDog)")
+            try? fetchedResultsController.performFetch()
+        } else { //tempDog is not already a favorite
+            //add dog to coreData
+            //toggle tint red
+            addDog(dogInfo: tempDog)
+            favoritesButton.tintColor = UIColor.red
+            try? fetchedResultsController.performFetch()
         }
     }
 }
