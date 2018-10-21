@@ -35,9 +35,9 @@ class FavoritesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("View will appear: FavoritesTableVC")
         setupFetchedResultsController()
         tableView.reloadData()
+        
         //add reachability observer
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
         
@@ -54,13 +54,10 @@ class FavoritesTableViewController: UITableViewController {
         
         switch reachability.connection {
         case .wifi:
-            print("Reachable via Wifi")
             self.view.alpha = 1.0
         case .cellular:
-            print("Reachable via Cellular")
             self.view.alpha = 1.0
         case .none:
-            print("Network not reachable")
             let ac = UIAlertController(title: "Network Error", message: "Your phone has lost its connection", preferredStyle: .alert)
             ac.addAction(okAction)
             
@@ -80,8 +77,6 @@ class FavoritesTableViewController: UITableViewController {
         
         do {
             try fetchedResultsController.performFetch()
-            print("success fetching favorites in FavTableVC?")
-            print("fetchedObjects FTVC: \(String(describing: fetchedResultsController.fetchedObjects?.count))")
         } catch {
             fatalError("error fetching favorites in FavTableVC: \(error.localizedDescription)")
         }
@@ -111,7 +106,6 @@ class FavoritesTableViewController: UITableViewController {
         
         activityIndicator.frame = cell.favoriteDogImageView.bounds
         activityIndicator.backgroundColor = UIColor.blue
-        //activityIndicator.color = UIColor.darkGray
         
         cell.favoriteDogImageView.addSubview(activityIndicator)
         
