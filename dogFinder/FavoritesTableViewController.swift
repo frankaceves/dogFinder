@@ -167,35 +167,7 @@ class FavoritesTableViewController: UITableViewController {
             }
         }
         
-//        if let dogURL = URL(string: dog.photoURL!) {
-//            if let dogData = try? Data(contentsOf: dogURL) {
-//                let dogImage = UIImage(data: dogData)
-//
-//                cell.favoriteDogImageView.image = dogImage
-//                // save binary data to coreData entity
-//                dog.imageData = dogData
-//
-//                do {
-//                    try dataController.viewContext.save()
-//                    //print("dog AFTER saving/configuring: \(dog)")
-//                } catch {
-//                    fatalError("error saving dogData: \(error.localizedDescription)")
-//                }
-//            }
-//
-//        }
-        
-        // Configure the cell...
-//        for (key,value) in dog {
-//            cell.favoriteDogBreedLabel.text = "Breed: \(value)"
-//
-//            let dogURL = URL(string: key)
-//            if let dogData = try? Data(contentsOf: dogURL!) {
-//                let dogImage = UIImage(data: dogData)
-//                cell.favoriteDogImageView.image = dogImage
-//            }
-//
-//        }
+
         return cell
     }
     
