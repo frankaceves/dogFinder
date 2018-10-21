@@ -158,17 +158,28 @@ class FavoritesTableViewController: UITableViewController {
     }
  
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // Delete object from CoreData
+            let dog = fetchedResultsController.object(at: indexPath)
+            dataController.viewContext.delete(dog)
+            
+            //save context
+            do {
+                try dataController.viewContext.save()
+                try fetchedResultsController.performFetch()
+            } catch {
+                fatalError("could not delete Dog entity: \(error.localizedDescription)")
+            }
+            
+            
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+ 
 
     /*
     // Override to support rearranging the table view.
