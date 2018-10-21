@@ -100,6 +100,21 @@ class RandomDogViewController: UIViewController {
         }
     }
     
+    func isFavorite() -> Bool {
+        if let fetchedDogs = fetchedResultsController.fetchedObjects {
+            for dog in fetchedDogs {
+                print("dogurl: \(dog.photoURL!)")
+                let urlToCompare = dog.photoURL!
+                
+                
+            }
+        }
+        
+        
+        
+        return false
+    }
+    
     // MARK: - CORE DATA RELATED
     fileprivate func setupFetchedResultsController() {
         print("func setupFetchedResultsController")
