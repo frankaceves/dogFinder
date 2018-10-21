@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // inject Data Controller into RandomDogVC
         let tabBarViewController = window?.rootViewController as? UITabBarController
         
-        if let childViewControllers = tabBarViewController?.childViewControllers as! [UINavigationController]! {
-            //injecting dataController into "Search" tab for now. Will need to inject into Favorites?
+        if let childViewControllers = tabBarViewController?.childViewControllers as? [UINavigationController] {
             let firstChild = childViewControllers[0]
             let randomDogViewController = firstChild.topViewController as! RandomDogViewController
             randomDogViewController.dataController = dataController
