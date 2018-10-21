@@ -12,21 +12,18 @@ class DogClient: NSObject {
     
     
     func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?) -> Void) {
-        //print("showRandomDog called")
-        let randomDogURL = URL(string: Constants.APIUrls.randomDogAPIString)!
         
+        let randomDogURL = URL(string: Constants.APIUrls.randomDogAPIString)!
         var dogPhoto = UIImage()
         let request = URLRequest(url: randomDogURL)
         
         taskForGetMethod(urlRequest: request) { (randomDogData, error) in
             guard (error == nil) else {
-                //print("error in taskForGet: \(error!)")
                 completionForShowRandomDog(nil, nil, nil, "error in taskForGet: \(error!)")
                 return
             }
             
             guard let randomDogData = randomDogData else {
-                //print("no dog data from taskForGet")
                 completionForShowRandomDog(nil, nil, nil, "no dog data from taskForGet")
                 return
             }
@@ -36,7 +33,6 @@ class DogClient: NSObject {
             if let randomDogURL = URL(string: randomDogURLString), let dogData = try? Data(contentsOf: randomDogURL) {
                 if let dogImage = UIImage(data: dogData) {
                     dogPhoto = dogImage
-                    //print("downloaded dog imageurl: \(randomDogURL)")
                     completionForShowRandomDog(dogPhoto, dogData, randomDogURLString, nil)
                 } else {
                     completionForShowRandomDog(nil, nil, nil, "no image present")
@@ -51,13 +47,11 @@ class DogClient: NSObject {
     func taskForGetMethod(urlRequest: URLRequest, completionForGet: @escaping (_ result: Constants.RandomDog?, _ error: String?) -> Void) -> URLSessionDataTask{
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard (error == nil) else {
-                //print("there was an error: \(error!.localizedDescription)")
                 completionForGet(nil, "there was an error: \(error!.localizedDescription)")
                 return
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
-                //print("status code was not 200 or lower")
                 completionForGet(nil, "no status code returned")
                 return
             }
@@ -68,7 +62,6 @@ class DogClient: NSObject {
             }
             
             guard let data = data else {
-                //print("no data returned")
                 completionForGet(nil, "no data returned")
                 return
             }
@@ -94,7 +87,6 @@ class DogClient: NSObject {
     
     // Get breed info from dog photo URL
     func getBreedAndSubBreed(urlString: String) -> [String] {
-        //print("get breed from this url: \(urlString)")
         var stringArray = [String]()
         var breed: String!
         var subBreed: String!
