@@ -47,11 +47,6 @@ class FavoritesTableViewController: UITableViewController {
             print("could not start reachability notifier: \(error.localizedDescription)")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @objc func reachabilityChanged(note: Notification) {
         let reachability = note.object as! Reachability
