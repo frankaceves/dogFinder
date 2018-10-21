@@ -30,7 +30,6 @@ class RandomDogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("viewDidLoad")
         breedLabel.isHidden = true
         breedSegControl.isHidden = true
         
@@ -47,7 +46,6 @@ class RandomDogViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("viewWillAppear RandomDogVC")
         setupFetchedResultsController()
         
         //add reachability observer
@@ -126,8 +124,6 @@ class RandomDogViewController: UIViewController {
         
         do {
             try fetchedResultsController.performFetch()
-            
-            print("fetchedObjects: \(String(describing: fetchedResultsController.fetchedObjects?.count))")
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
@@ -215,7 +211,6 @@ class RandomDogViewController: UIViewController {
             }
             
             self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
-            print("tempDog info: \(self.tempDog)")
             
         }
     }
