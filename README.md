@@ -7,10 +7,10 @@ This app is my capstone project for Udacity's [iOS Nanodegree Program](https://u
 
 ## Usage
 * No pre-work needed.  Just build and run (use Master branch).
-* Upon launch, click the reload button to show a random dog photo.
+* Upon launch, a random dog photo will load.  Click the reload button to show another random dog photo.
 * Click the Breed or Sub-breed button to view information about the current dog photo.
-* Add current dog to a list of favorites by clicking the heart shaped button.
-* Click the "Favorites" tab to view a table collection of favorited dogs.
+* Add current dog to a list of favorites by clicking the heart shaped button.  You can also remove the current dog from your list of favorites by clicking on the heart shaped button again.
+* Click the "Favorites" tab to view a table collection of favorited dogs.  Swipe to delete dogs from your Favorites list.
 
 ## Acknowledgements
 
