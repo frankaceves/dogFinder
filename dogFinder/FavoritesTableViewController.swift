@@ -137,34 +137,8 @@ class FavoritesTableViewController: UITableViewController {
             cell.favoriteDogImageView.image = dogImage
             return cell
         } else {
-            activityIndicator.startAnimating()
-            DispatchQueue.global(qos: .background).async {
-                DogClient.sharedInstance.getDogDataFrom(dogImageUrl: dog.photoURL!, completionForGetDogData: { (dogData, error) in
-                    guard (error == nil) else {
-                        print("there was an error - cellForRow")
-                        return
-                    }
-                    
-                    guard let data = dogData else {
-                        print("no data - cellForRow")
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {
-                        let dogImage = UIImage(data: data)
-                        cell.favoriteDogImageView.image = dogImage
-                        cell.favoriteDogImageView.alpha = 1.0
-                        self.activityIndicator.stopAnimating()
-                        dog.imageData = data
-                        
-                        do {
-                            try self.dataController.viewContext.save()
-                        } catch {
-                            print("error saving in cellforItem: \(error.localizedDescription)")
-                        }
-                    }
-                })
-            }
+            print("no dog image present")
+            cell.favoriteDogImageView.image = #imageLiteral(resourceName: "shiba-8.JPG")
         }
         
 
