@@ -106,17 +106,18 @@ class RandomDogViewController: UIViewController {
             for dog in fetchedDogs {
                 
                 if tempDog.keys.contains(dog.photoURL!) {
-                    print("dog is already a favorite!")
+                    
                     return true
                 }
             }
         }
+        
         return false
     }
     
     // MARK: - CORE DATA RELATED
     fileprivate func setupFetchedResultsController() {
-        print("func setupFetchedResultsController")
+        
         let fetchRequest: NSFetchRequest<FavoriteDog> = FavoriteDog.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "breed", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -125,7 +126,7 @@ class RandomDogViewController: UIViewController {
         
         do {
             try fetchedResultsController.performFetch()
-            print("success fetching?")
+            
             print("fetchedObjects: \(String(describing: fetchedResultsController.fetchedObjects?.count))")
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
@@ -240,7 +241,7 @@ class RandomDogViewController: UIViewController {
         //save context
         do {
             try dataController.viewContext.save()
-            print("dog saved?")
+            
         } catch {
             fatalError("could not save Dog entity: \(error.localizedDescription)")
         }
@@ -257,7 +258,7 @@ class RandomDogViewController: UIViewController {
             //save context
             do {
                 try dataController.viewContext.save()
-                print("dog deleted")
+                
             } catch {
                 fatalError("could not delete Dog entity: \(error.localizedDescription)")
             }
