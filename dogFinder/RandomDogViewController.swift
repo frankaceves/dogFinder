@@ -139,6 +139,7 @@ class RandomDogViewController: UIViewController {
     
     @IBAction func randomDogButtonPressed(_ sender: Any) {
         favoritesButton.isEnabled = false
+        reloadButton.isEnabled = false
         tempDog.removeAll()
         favoritesButton.tintColor = nil
         breedSegControl.isEnabled = false
@@ -199,6 +200,7 @@ class RandomDogViewController: UIViewController {
                     self.favoritesButton.tintColor = nil
                 }
                 
+                self.reloadButton.isEnabled = true
                 self.activityIndicator.stopAnimating()
             }
             
