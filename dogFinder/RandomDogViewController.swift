@@ -246,6 +246,24 @@ class RandomDogViewController: UIViewController {
         }
     }
     
+    func removeDog(dogInfo: [String:String]) {
+        let favoriteDogs = fetchedResultsController.fetchedObjects!
+        for (url, _) in dogInfo {
+            for dog in favoriteDogs {
+                if url == dog.photoURL {
+                    dataController.viewContext.delete(dog)
+                }
+            }
+            //save context
+            do {
+                try dataController.viewContext.save()
+                print("dog deleted")
+            } catch {
+                fatalError("could not delete Dog entity: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     @IBAction func favoritesButtonPressed(_ sender: Any) {
         //toggle tint
         //add tempDog to favoritesArray
