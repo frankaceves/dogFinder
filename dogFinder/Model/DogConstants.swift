@@ -15,7 +15,6 @@ extension DogClient {
         
         struct AllDogBreeds: Decodable {
             let status: String
-            //let message: [Breed: [SubBreed]] // [breed: [subBreed]]
             let message: [String: [String]]
         }
         
