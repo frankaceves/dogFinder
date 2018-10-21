@@ -12,7 +12,6 @@ import CoreData
 class FavoritesTableViewController: UITableViewController {
     var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
     var dataController: DataController!
-    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,19 +97,7 @@ class FavoritesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath) as! FavoriteDogTableViewCell
         
-        
         cell.favoriteDogImageView.image = nil
-        
-        cell.favoriteDogImageView.alpha = 1.0
-        
-        
-        activityIndicator.frame = cell.favoriteDogImageView.bounds
-        activityIndicator.backgroundColor = UIColor.blue
-        
-        cell.favoriteDogImageView.addSubview(activityIndicator)
-        
-        
-        
         
         let dog = fetchedResultsController.fetchedObjects![indexPath.row]
         
@@ -119,8 +106,6 @@ class FavoritesTableViewController: UITableViewController {
         
         
         if dog.imageData != nil {
-            activityIndicator.stopAnimating()
-            
             let dogImage = UIImage(data: dog.imageData!)
             cell.favoriteDogImageView.image = dogImage
             return cell
