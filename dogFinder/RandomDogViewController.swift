@@ -235,6 +235,7 @@ class RandomDogViewController: UIViewController {
         //assign attributes
         dog.photoURL = url
         dog.breed = breed
+        dog.imageData = imageData
         
         //save context
         do {
