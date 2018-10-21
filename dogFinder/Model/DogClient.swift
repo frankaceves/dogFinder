@@ -111,21 +111,6 @@ class DogClient: NSObject {
         return stringArray
     } // GET BREED & SUBBREED
     
-    // GET DOG IMAGE/DATA
-    func getDogDataFrom(dogImageUrl: String, completionForGetDogData: @escaping (_ imageData: Data?, _ error: String?) -> Void) {
-        print("getDogData called")
-        let dogURL = URL(string: dogImageUrl)!
-        
-        if let dogData = try? Data(contentsOf: dogURL) {
-            print("dogData: \(dogData)")
-            completionForGetDogData(dogData, nil)
-        } else {
-            print("can't access dogData inside GetDogData func")
-            completionForGetDogData(nil, "can't access dogData inside GetDogData func")
-        }
-        
-    }
-    
     // - MARK: SINGLETON
     static let sharedInstance = DogClient()
 }
