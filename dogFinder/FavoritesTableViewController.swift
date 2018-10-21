@@ -12,17 +12,9 @@ import CoreData
 class FavoritesTableViewController: UITableViewController {
     var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
     var dataController: DataController!
-    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     let reachability = Reachability()!
@@ -35,9 +27,9 @@ class FavoritesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("View will appear: FavoritesTableVC")
         setupFetchedResultsController()
         tableView.reloadData()
+        
         //add reachability observer
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
         
@@ -47,11 +39,6 @@ class FavoritesTableViewController: UITableViewController {
             print("could not start reachability notifier: \(error.localizedDescription)")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @objc func reachabilityChanged(note: Notification) {
         let reachability = note.object as! Reachability
@@ -59,13 +46,10 @@ class FavoritesTableViewController: UITableViewController {
         
         switch reachability.connection {
         case .wifi:
-            print("Reachable via Wifi")
             self.view.alpha = 1.0
         case .cellular:
-            print("Reachable via Cellular")
             self.view.alpha = 1.0
         case .none:
-            print("Network not reachable")
             let ac = UIAlertController(title: "Network Error", message: "Your phone has lost its connection", preferredStyle: .alert)
             ac.addAction(okAction)
             
@@ -85,8 +69,6 @@ class FavoritesTableViewController: UITableViewController {
         
         do {
             try fetchedResultsController.performFetch()
-            print("success fetching favorites in FavTableVC?")
-            print("fetchedObjects FTVC: \(String(describing: fetchedResultsController.fetchedObjects?.count))")
         } catch {
             fatalError("error fetching favorites in FavTableVC: \(error.localizedDescription)")
         }
@@ -101,7 +83,6 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //return FavoriteDogsTEMP.sharedInstance.favoriteDogs.count
         return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
@@ -109,20 +90,7 @@ class FavoritesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath) as! FavoriteDogTableViewCell
         
-        
         cell.favoriteDogImageView.image = nil
-        
-        cell.favoriteDogImageView.alpha = 1.0
-        
-        
-        activityIndicator.frame = cell.favoriteDogImageView.bounds
-        activityIndicator.backgroundColor = UIColor.blue
-        //activityIndicator.color = UIColor.darkGray
-        
-        cell.favoriteDogImageView.addSubview(activityIndicator)
-        
-        
-        
         
         let dog = fetchedResultsController.fetchedObjects![indexPath.row]
         
@@ -131,8 +99,6 @@ class FavoritesTableViewController: UITableViewController {
         
         
         if dog.imageData != nil {
-            activityIndicator.stopAnimating()
-            
             let dogImage = UIImage(data: dog.imageData!)
             cell.favoriteDogImageView.image = dogImage
             return cell
