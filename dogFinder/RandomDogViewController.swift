@@ -65,17 +65,14 @@ class RandomDogViewController: UIViewController {
         
         switch reachability.connection {
         case .wifi:
-            //print("Reachable via Wifi")
             reloadButton.isEnabled = true
             favoritesButton.isEnabled = shouldEnable()
             self.view.alpha = 1.0
         case .cellular:
-            //print("Reachable via Cellular")
             reloadButton.isEnabled = true
             favoritesButton.isEnabled = shouldEnable()
             self.view.alpha = 1.0
         case .none:
-            //print("Network not reachable")
             let ac = UIAlertController(title: "Network Error", message: "Your phone has lost its connection", preferredStyle: .alert)
             ac.addAction(okAction)
             
@@ -90,21 +87,16 @@ class RandomDogViewController: UIViewController {
     func shouldEnable() -> Bool {
         //if tempDog is empty, disable buttons
         if tempDog.isEmpty {
-            //print("keeping disabled")
             return false
         } else {
-            //print("enabling buttons")
             return true
         }
     }
     
     func isFavorite() -> Bool {
         if let fetchedDogs = fetchedResultsController.fetchedObjects {
-            
             for dog in fetchedDogs {
-                
                 if tempDog.keys.contains(dog.photoURL!) {
-                    
                     return true
                 }
             }
