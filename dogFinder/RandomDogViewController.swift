@@ -102,16 +102,15 @@ class RandomDogViewController: UIViewController {
     
     func isFavorite() -> Bool {
         if let fetchedDogs = fetchedResultsController.fetchedObjects {
+            
             for dog in fetchedDogs {
                 print("dogurl: \(dog.photoURL!)")
-                let urlToCompare = dog.photoURL!
-                
-                
+                if tempDog.keys.contains(dog.photoURL!) {
+                    print("dog is already a favorite!")
+                    return true
+                }
             }
         }
-        
-        
-        
         return false
     }
     
