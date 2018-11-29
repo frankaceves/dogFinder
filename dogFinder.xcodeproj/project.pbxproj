@@ -19,6 +19,7 @@
 		7CBA0929213E19CF00B96781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA0927213E19CF00B96781 /* Main.storyboard */; };
 		7CBA092B213E19CF00B96781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA092A213E19CF00B96781 /* Assets.xcassets */; };
 		7CBA092E213E19CF00B96781 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA092C213E19CF00B96781 /* LaunchScreen.storyboard */; };
+		7CC9ABE321AFC9AD002C2C8C /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9ABE221AFC9AD002C2C8C /* FlickrClient.swift */; };
 		7CCF5EB821630B3600A95D90 /* DogClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF5EB721630B3600A95D90 /* DogClient.swift */; };
 		7CCF5EBA21630BD400A95D90 /* DogConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF5EB921630BD400A95D90 /* DogConstants.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		7CBA092A213E19CF00B96781 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CBA092D213E19CF00B96781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CBA092F213E19CF00B96781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CC9ABE221AFC9AD002C2C8C /* FlickrClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 		7CCF5EB721630B3600A95D90 /* DogClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogClient.swift; sourceTree = "<group>"; };
 		7CCF5EB921630BD400A95D90 /* DogConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				7CCF5EB721630B3600A95D90 /* DogClient.swift */,
 				7CCF5EB921630BD400A95D90 /* DogConstants.swift */,
 				2808E7E021670F3D00CF285E /* Reachability.swift */,
+				7CC9ABE221AFC9AD002C2C8C /* FlickrClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CBA0926213E19CF00B96781 /* RandomDogViewController.swift in Sources */,
+				7CC9ABE321AFC9AD002C2C8C /* FlickrClient.swift in Sources */,
 				7C96A8CF214D8600009496CF /* DataController.swift in Sources */,
 				7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */,
 				7CCF5EB821630B3600A95D90 /* DogClient.swift in Sources */,
