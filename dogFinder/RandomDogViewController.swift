@@ -185,12 +185,12 @@ class RandomDogViewController: UIViewController {
             self.breedArray = DogClient.sharedInstance.getBreedAndSubBreed(urlString: urlString)
             
             DispatchQueue.main.async {
-                self.breedSegControl.isHidden = false
+                self.breedSegControl.isHidden = true
                 self.breedSegControl.isEnabled = true
                 self.randomDogImageView.image = image
                 self.randomDogImageView.alpha = 1.0
                 self.breedLabel.text = "Breed: \(self.breedArray[0])"
-                self.breedLabel.isHidden = false
+                self.breedLabel.isHidden = true
                 
                 if self.isFavorite() == true {
                     self.favoritesButton.isEnabled = true
