@@ -46,7 +46,7 @@ class DogClient: NSObject {
         
     }
     
-    func taskForGetMethod(urlRequest: URLRequest, completionForGet: @escaping (_ result: Constants.RandomDog?, _ error: String?) -> Void) -> URLSessionDataTask{
+    func taskForGetMethod(urlRequest: URLRequest, completionForGet: @escaping (_ result: FlickrConstants.Photos?, _ error: String?) -> Void) -> URLSessionDataTask{
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard (error == nil) else {
                 completionForGet(nil, "there was an error: \(error!.localizedDescription)")
