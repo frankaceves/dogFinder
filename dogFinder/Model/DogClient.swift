@@ -29,7 +29,8 @@ class DogClient: NSObject {
                 return
             }
             
-            let randomDogURLString = randomDogData.message
+            //update to pull a random page, photo, url
+            let randomDogURLString = randomDogData.photos.photo[2].url_l ?? ""
             
             if let randomDogURL = URL(string: randomDogURLString), let dogData = try? Data(contentsOf: randomDogURL) {
                 if let dogImage = UIImage(data: dogData) {
