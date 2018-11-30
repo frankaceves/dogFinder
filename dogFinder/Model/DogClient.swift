@@ -13,7 +13,8 @@ class DogClient: NSObject {
     
     func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?) -> Void) {
         
-        let randomDogURL = URL(string: Constants.APIUrls.randomDogAPIString)!
+        let randomDogURL = URL(string: FlickrConstants.APIUrls.urlString)!
+        
         var dogPhoto = UIImage()
         let request = URLRequest(url: randomDogURL)
         
