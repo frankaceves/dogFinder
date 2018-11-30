@@ -74,14 +74,15 @@ class DogClient: NSObject {
         return task
     } // TASK FOR GET METHOD
     
-    func convertToJSONFrom(randomDogData: Data, completionForJSONConversion: @escaping (_ result: Constants.RandomDog?, _ error: String?) -> Void) {
-        var decodedResults: Constants.RandomDog!
+    func convertToJSONFrom(randomDogData: Data, completionForJSONConversion: @escaping (_ result: FlickrConstants.Photos?, _ error: String?) -> Void) {
+        var decodedResults: FlickrConstants.Photos!
         
         do {
-            decodedResults = try JSONDecoder().decode(Constants.RandomDog.self, from: randomDogData)
+            decodedResults = try JSONDecoder().decode(FlickrConstants.Photos.self, from: randomDogData)
+            print("decoded JSON")
             completionForJSONConversion(decodedResults, nil)
         } catch {
-            print("error decoding randomDog JSON: \(error.localizedDescription)")
+            print("error decoding Flickr JSON: \(error.localizedDescription)")
             completionForJSONConversion(nil, error.localizedDescription)
         }
     } // CONVERT TO JSON
