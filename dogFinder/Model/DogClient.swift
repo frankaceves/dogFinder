@@ -91,10 +91,10 @@ class DogClient: NSObject {
         
         do {
             decodedResults = try JSONDecoder().decode(FlickrConstants.Photos.self, from: randomDogData)
-            print("decoded JSON")
+            //print("decoded JSON")
             completionForJSONConversion(decodedResults, nil)
         } catch {
-            print("error decoding Flickr JSON: \(error.localizedDescription)")
+            //print("error decoding Flickr JSON: \(error.localizedDescription)")
             completionForJSONConversion(nil, error.localizedDescription)
         }
     } // CONVERT TO JSON
