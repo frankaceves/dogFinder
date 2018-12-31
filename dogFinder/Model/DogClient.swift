@@ -24,7 +24,7 @@ class DogClient: NSObject {
                 return
             }
             
-            guard let randomDogData = randomDogData else {
+            guard (randomDogData != nil) else {
                 completionForShowRandomDog(nil, nil, nil, "no dog data from taskForGet")
                 return
             }
