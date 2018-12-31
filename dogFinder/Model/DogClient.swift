@@ -9,7 +9,7 @@
 import UIKit
 
 class DogClient: NSObject {
-    
+    var dogURLArray: [URL] = []
     
     func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?) -> Void) {
         
