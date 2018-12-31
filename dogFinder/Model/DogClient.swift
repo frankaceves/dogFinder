@@ -29,14 +29,41 @@ class DogClient: NSObject {
                 return
             }
             
-            //update to pull a random page, photo, url
-            let randomDogURLString = randomDogData.photos.photo[2].url_l ?? ""
+            // CREATE RANDOM PAGE
+            let maxFlickrResults = 4000
+            let resultsPerPage = FlickrConstants.APIUrls.resultsPerPage
+            let maxPageNumber = (maxFlickrResults/resultsPerPage)
             
-            if let randomDogURL = URL(string: randomDogURLString), let dogData = try? Data(contentsOf: randomDogURL) {
-                if let dogImage = UIImage(data: dogData) {
+            let randomPageNumber = Int(arc4random_uniform(UInt32(maxPageNumber)))
+            
+            
+            // TODO: CALL FUNC THAT EXECUTES SECOND NETWORK REQUEST WITH PAGE NUMBER
+            self.searchForRandomDogUsing(pageNumber: randomPageNumber, url: FlickrConstants.APIUrls.urlString, completionForSearchForRandomDog: { (urlArray, error) in
+                guard (error == nil) else {
+                    completionForShowRandomDog(nil, nil, nil, "there was an error")
+                    return
+                }
+                
+                guard let urlArray = urlArray else {
+                    completionForShowRandomDog(nil, nil, nil, "error: no array present")
+                    return
+                }
+                
+                //print("SHOW RANDOM DOG>SEARCHRANDOM - urls = \(urlArray)")
+                self.dogURLArray = urlArray
+                //print("dogURLArray = \(self.dogURLArray)")
+                self.dogURLArray.shuffle()
+                //print("dogURLArray shuffled = \(self.dogURLArray)")
+                
+                
+                
+                if let dogData = try? Data(contentsOf: self.dogURLArray[0]), let dogImage = UIImage(data: dogData) {
                     dogPhoto = dogImage
-                    completionForShowRandomDog(dogPhoto, dogData, randomDogURLString, nil)
+                    let urlString = self.dogURLArray[0].absoluteString
+                    self.dogURLArray.removeAll()
+                    completionForShowRandomDog(dogPhoto, dogData, urlString, nil)
                 } else {
+                    self.dogURLArray.removeAll()
                     completionForShowRandomDog(nil, nil, nil, "no image present")
                 }
             })
