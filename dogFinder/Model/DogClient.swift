@@ -68,19 +68,6 @@ class DogClient: NSObject {
                 }
             })
             
-            
-//            if let randomDogURL = URL(string: randomDogURLString), let dogData = try? Data(contentsOf: randomDogURL) {
-//                if let dogImage = UIImage(data: dogData) {
-//                    dogPhoto = dogImage
-//                    completionForShowRandomDog(dogPhoto, dogData, randomDogURLString, nil)
-//                } else {
-//                    completionForShowRandomDog(nil, nil, nil, "no image present")
-//                }
-//
-//            } else {
-//                completionForShowRandomDog(nil, nil,nil, "no image present")
-//            }
-            
             }.resume()
         
     }
