@@ -58,6 +58,49 @@ class DogClient: NSObject {
         
     }
     
+    // FUNC - get list of URL's for random page of phtoos
+    func searchForRandomDogUsing(pageNumber: Int, url: String, completionForSearchForRandomDog: @escaping (_ urlArray: [URL]?, _ error: String?) -> Void){
+        
+        let urlString = url.appending("&page=\(pageNumber)")
+        let dogURL = URL(string: urlString)!
+        var urlArray = [URL]()
+        
+        print("SEARCH FOR RANDOM - randomDogURL: \(dogURL)")
+        
+        let request = URLRequest(url: dogURL)
+        
+        taskForGetMethod(urlRequest: request) { (photos, error) in
+            //code
+            guard (error == nil) else {
+                print("SEARCH FOR RANDOM: error = \(error!)")
+                return
+            }
+            
+            guard let photoInfo = photos else {
+                print("SEARCH FOR RANDOM: error downloading")
+                return
+            }
+            
+            //store array of Photos
+            let photoArray = photoInfo.photos.photo
+            for photo in photoArray {
+                if let largeUrlString = photo.url_l, let largeURL = URL(string: largeUrlString)  {
+                    //print("SEARCH FOR RANDOM: using largeURL")
+                    urlArray.append(largeURL)
+                    //print("added url: \(largeURL)")
+                } else if let originalUrlString = photo.url_0, let originalURL = URL(string: originalUrlString) {
+                    //print("SEARCH FOR RANDOM: using originalURL")
+                    urlArray.append(originalURL)
+                    //print("added url: \(originalURL)")
+                } else {
+                    //print("SEARCH FOR RANDOM: can't get url")
+                }
+            } // end iteration
+            
+            completionForSearchForRandomDog(urlArray, nil)
+        }.resume()
+    }
+    
     func taskForGetMethod(urlRequest: URLRequest, completionForGet: @escaping (_ result: FlickrConstants.Photos?, _ error: String?) -> Void) -> URLSessionDataTask{
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard (error == nil) else {
