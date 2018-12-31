@@ -182,14 +182,16 @@ class RandomDogViewController: UIViewController {
                 return
             }
             
-            self.breedArray = DogClient.sharedInstance.getBreedAndSubBreed(urlString: urlString)
+            //self.breedArray = DogClient.sharedInstance.getBreedAndSubBreed(urlString: urlString)
+            //self.breedArray.append(urlString)
             
             DispatchQueue.main.async {
                 self.breedSegControl.isHidden = true
                 self.breedSegControl.isEnabled = true
                 self.randomDogImageView.image = image
                 self.randomDogImageView.alpha = 1.0
-                self.breedLabel.text = "Breed: \(self.breedArray[0])"
+                //self.breedLabel.text = "Breed: \(self.breedArray[0])"
+                print("urlString = \(urlString)")
                 self.breedLabel.isHidden = true
                 
                 if self.isFavorite() == true {
@@ -204,7 +206,7 @@ class RandomDogViewController: UIViewController {
                 self.activityIndicator.stopAnimating()
             }
             
-            self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
+            //self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
             
         }
     }
