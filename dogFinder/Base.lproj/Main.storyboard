@@ -24,13 +24,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4YI-pc-Dvx" firstAttribute="centerX" secondItem="dPy-GR-G3A" secondAttribute="centerX" id="4h5-CY-865"/>
-                            <constraint firstItem="vyD-6M-OfG" firstAttribute="bottom" secondItem="dPy-GR-G3A" secondAttribute="bottom" priority="999" constant="-5" id="Bqv-oU-YuG"/>
-                            <constraint firstItem="Ycs-Na-QiK" firstAttribute="top" secondItem="4YI-pc-Dvx" secondAttribute="bottom" constant="10" id="Qg2-tb-zny"/>
+                            <constraint firstItem="Ycs-Na-QiK" firstAttribute="top" secondItem="dPy-GR-G3A" secondAttribute="top" id="J2t-Cq-jke"/>
                             <constraint firstItem="Ycs-Na-QiK" firstAttribute="trailing" secondItem="dPy-GR-G3A" secondAttribute="trailing" id="VQO-Gz-5ER"/>
-                            <constraint firstItem="Ycs-Na-QiK" firstAttribute="bottom" secondItem="vyD-6M-OfG" secondAttribute="top" constant="-15" id="Vkn-to-NFb"/>
-                            <constraint firstItem="4YI-pc-Dvx" firstAttribute="top" secondItem="dPy-GR-G3A" secondAttribute="top" constant="10" id="j5G-7Y-9fm"/>
-                            <constraint firstItem="vyD-6M-OfG" firstAttribute="centerX" secondItem="jBn-bx-xK6" secondAttribute="centerX" id="oQ0-D0-3Ob"/>
+                            <constraint firstItem="Ycs-Na-QiK" firstAttribute="bottom" secondItem="dPy-GR-G3A" secondAttribute="bottom" id="bOe-OO-0Yf"/>
                             <constraint firstItem="Ycs-Na-QiK" firstAttribute="leading" secondItem="dPy-GR-G3A" secondAttribute="leading" id="uGk-bh-HLd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dPy-GR-G3A"/>
