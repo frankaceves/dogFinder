@@ -98,14 +98,12 @@ class DogClient: NSObject {
             //store array of Photos
             let photoArray = photoInfo.photos.photo
             for photo in photoArray {
-                if let largeUrlString = photo.url_l, let largeURL = URL(string: largeUrlString)  {
+                if let mediumUrlString = photo.url_m, let mediumURL = URL(string: mediumUrlString)  {
                     //print("SEARCH FOR RANDOM: using largeURL")
-                    urlArray.append(largeURL)
-                    //print("added url: \(largeURL)")
-                } else if let originalUrlString = photo.url_0, let originalURL = URL(string: originalUrlString) {
-                    //print("SEARCH FOR RANDOM: using originalURL")
-                    urlArray.append(originalURL)
-                    //print("added url: \(originalURL)")
+                    if photo.height_m! > photo.width_m! {
+                        urlArray.append(mediumURL)
+                        //print("added url: \(mediumURL)")
+                    }
                 } else {
                     //print("SEARCH FOR RANDOM: can't get url")
                 }
