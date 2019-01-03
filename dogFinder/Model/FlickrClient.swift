@@ -34,7 +34,7 @@ extension DogClient {
             static let apiKey = "ad57c918d7705a17a075a02858b94f59"
             static let resultsPerPage = 5
             
-            static let urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=puppy%2C+puppies&sort=relevance&content_type=1&media=photos&extras=license%2C+url_l%2C+url_z%2C+url_o&format=json&nojsoncallback=1&per_page=\(resultsPerPage)"
+            static let urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=puppy%2C+puppies&sort=relevance&content_type=1&media=photos&extras=license%2C+url_l%2C+url_z%2C+url_o%2C+url_m&format=json&nojsoncallback=1&per_page=\(resultsPerPage)"
         }
         
     }
