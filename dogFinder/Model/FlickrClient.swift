@@ -23,6 +23,9 @@ extension DogClient {
             let url_l: String?
             let url_z: String?
             let url_0: String?
+            let url_m: String?
+            let height_m: String?
+            let width_m: String?
         }
         
         
