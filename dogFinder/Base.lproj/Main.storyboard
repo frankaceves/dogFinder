@@ -70,8 +70,6 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="breedLabel" destination="vyD-6M-OfG" id="8o0-3E-SPA"/>
-                        <outlet property="breedSegControl" destination="4YI-pc-Dvx" id="zPI-4X-ZmM"/>
                         <outlet property="favoritesButton" destination="hs5-S1-38L" id="HdJ-3W-nMr"/>
                         <outlet property="randomDogImageView" destination="Ycs-Na-QiK" id="WJo-XV-Qwy"/>
                         <outlet property="reloadButton" destination="g0u-ow-8Y5" id="QTy-zG-MfJ"/>
