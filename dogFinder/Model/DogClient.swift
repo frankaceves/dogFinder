@@ -79,7 +79,7 @@ class DogClient: NSObject {
         let dogURL = URL(string: urlString)!
         var urlArray = [URL]()
         
-        print("SEARCH FOR RANDOM - randomDogURL: \(dogURL)")
+        //print("SEARCH FOR RANDOM - randomDogURL: \(dogURL)")
         
         let request = URLRequest(url: dogURL)
         
