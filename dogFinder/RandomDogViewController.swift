@@ -170,8 +170,6 @@ class RandomDogViewController: UIViewController {
                 return
             }
             
-            //self.breedArray = DogClient.sharedInstance.getBreedAndSubBreed(urlString: urlString)
-            //self.breedArray.append(urlString)
             
             DispatchQueue.main.async {
                 self.randomDogImageView.image = image
