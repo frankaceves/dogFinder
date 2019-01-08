@@ -46,6 +46,12 @@ class RandomDogViewController: UIViewController {
         super.viewWillAppear(true)
         setupFetchedResultsController()
         
+        if isFavorite() {
+            favoritesButton.tintColor = UIColor.red
+        } else {
+            favoritesButton.tintColor = nil
+        }
+        
         //add reachability observer
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
         
