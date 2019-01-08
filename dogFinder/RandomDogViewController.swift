@@ -30,8 +30,6 @@ class RandomDogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        breedLabel.isHidden = true
-        breedSegControl.isHidden = true
         
         randomDogButtonPressed(self)
     }
@@ -142,13 +140,13 @@ class RandomDogViewController: UIViewController {
         reloadButton.isEnabled = false
         tempDog.removeAll()
         favoritesButton.tintColor = nil
-        breedSegControl.isEnabled = false
+        
         activityIndicator.color = UIColor.blue
         activityIndicator.frame = randomDogImageView.bounds
         randomDogImageView.addSubview(activityIndicator)
         randomDogImageView.alpha = 0.5
         activityIndicator.startAnimating()
-        breedSegControl.selectedSegmentIndex = 0
+        
         
         DogClient.sharedInstance.showRandomDog { (image, imageData, urlString, error) in
             
@@ -174,8 +172,6 @@ class RandomDogViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.randomDogImageView.image = #imageLiteral(resourceName: "shiba-8.JPG")
-                    self.breedLabel.text = "No Photo Available"
-                    self.breedLabel.isHidden = false
                     self.activityIndicator.stopAnimating()
                 }
                 
