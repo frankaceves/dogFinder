@@ -155,32 +155,6 @@ class DogClient: NSObject {
     } // CONVERT TO JSON
     
     
-    // Get breed info from dog photo URL
-    func getBreedAndSubBreed(urlString: String) -> [String] {
-        var stringArray = [String]()
-        var breed: String!
-        var subBreed: String!
-        
-        var fullBreed = urlString.replacingOccurrences(of: "https://images.dog.ceo/breeds/", with: "").capitalized
-        if let slashIndex = fullBreed.index(of: "/") {
-            fullBreed = String(fullBreed[..<slashIndex])
-        }
-        
-        
-        let splitDogBreed = fullBreed.split(separator: "-", maxSplits: 1, omittingEmptySubsequences: true)
-        if splitDogBreed.count <= 1 {
-            let breed = String(splitDogBreed[0])
-            stringArray.append(breed)
-        } else {
-            breed = String(splitDogBreed[0])
-            subBreed = String(splitDogBreed[1])
-            stringArray.append(breed)
-            stringArray.append(subBreed)
-        }
-        
-        return stringArray
-    } // GET BREED & SUBBREED
-    
     // - MARK: SINGLETON
     static let sharedInstance = DogClient()
 }
