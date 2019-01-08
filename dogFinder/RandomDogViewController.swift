@@ -175,7 +175,7 @@ class RandomDogViewController: UIViewController {
                 self.randomDogImageView.image = image
                 self.randomDogImageView.alpha = 1.0
                 
-                print("urlString = \(urlString)")
+                //print("urlString = \(urlString)")
                 
                 
                 if self.isFavorite() == true {
