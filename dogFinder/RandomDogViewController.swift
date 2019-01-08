@@ -120,20 +120,6 @@ class RandomDogViewController: UIViewController {
     }
     
     // MARK: - ACTIONS
-    @IBAction func showBreedOrSubBreed(_ sender: UISegmentedControl) {
-        switch breedSegControl.selectedSegmentIndex {
-        case 1:
-            if breedArray.count > 1 {
-                breedLabel.text = "Sub-Breed: \(breedArray[1])"
-            } else {
-                breedLabel.text = "No Sub-Breed Found"
-            }
-        default:
-            if breedLabel.text != breedArray[0] {
-                breedLabel.text = "Breed: \(breedArray[0])"
-            }
-        }
-    }
     
     @IBAction func randomDogButtonPressed(_ sender: Any) {
         favoritesButton.isEnabled = false
