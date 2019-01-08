@@ -94,7 +94,7 @@ class RandomDogViewController: UIViewController {
     func isFavorite() -> Bool {
         if let fetchedDogs = fetchedResultsController.fetchedObjects {
             for dog in fetchedDogs {
-                if tempDog.keys.contains(dog.photoURL!) {
+                if tempDog == dog.photoURL {
                     return true
                 }
             }
@@ -187,26 +187,19 @@ class RandomDogViewController: UIViewController {
             }
             
             //self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
+            self.tempDog.append(urlString)
             
         }
     }
     
-    func addDog(dogInfo: [String:String]) {
-        //get components of dogInfo = [urlString: Breed]
-        var url: String!
-        var breed: String!
-        
-        for (x, y) in dogInfo {
-            url = x
-            breed = y
-        }
+    func addDog(dogUrl: String) {
         
         //create FavoriteDog entity
         let dog = FavoriteDog(context: dataController.viewContext)
         
         //assign attributes
-        dog.photoURL = url
-        dog.breed = breed
+        dog.photoURL = dogUrl
+        dog.breed = nil
         dog.imageData = imageData
         
         //save context
@@ -214,15 +207,15 @@ class RandomDogViewController: UIViewController {
             try dataController.viewContext.save()
             
         } catch {
-            fatalError("could not save Dog entity: \(error.localizedDescription)")
+            print("could not save Dog entity: \(error.localizedDescription)")
         }
     }
     
-    func removeDog(dogInfo: [String:String]) {
+    func removeDog(dogUrl: String) {
         let favoriteDogs = fetchedResultsController.fetchedObjects!
-        for (url, _) in dogInfo {
+        
             for dog in favoriteDogs {
-                if url == dog.photoURL {
+                if dogUrl == dog.photoURL {
                     dataController.viewContext.delete(dog)
                 }
             }
@@ -233,7 +226,7 @@ class RandomDogViewController: UIViewController {
             } catch {
                 fatalError("could not delete Dog entity: \(error.localizedDescription)")
             }
-        }
+        
     }
     
     @IBAction func favoritesButtonPressed(_ sender: Any) {
@@ -241,13 +234,13 @@ class RandomDogViewController: UIViewController {
         if isFavorite() == true {
             //delete dog from coreData
             //toggle tint nil
-            removeDog(dogInfo: tempDog)
+            removeDog(dogUrl: tempDog)
             favoritesButton.tintColor = nil
             try? fetchedResultsController.performFetch()
         } else { //tempDog is not already a favorite
             //add dog to coreData
             //toggle tint red
-            addDog(dogInfo: tempDog)
+            addDog(dogUrl: tempDog)
             favoritesButton.tintColor = UIColor.red
             try? fetchedResultsController.performFetch()
         }
