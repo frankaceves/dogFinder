@@ -162,6 +162,7 @@ class RandomDogViewController: UIViewController {
             guard let image = image else {
                 print("no photo returned")
                 
+                //display dog placeholder if no image present
                 DispatchQueue.main.async {
                     self.randomDogImageView.image = #imageLiteral(resourceName: "shiba-8.JPG")
                     self.activityIndicator.stopAnimating()
@@ -170,7 +171,7 @@ class RandomDogViewController: UIViewController {
                 return
             }
             
-            
+            //if image is present, update UI with image, and check if it's a favorite.
             DispatchQueue.main.async {
                 self.randomDogImageView.image = image
                 self.randomDogImageView.alpha = 1.0
