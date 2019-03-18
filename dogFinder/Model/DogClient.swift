@@ -47,7 +47,7 @@ class DogClient: NSObject {
                 if let dogData = try? Data(contentsOf: self.dogURLArray[0]), let dogImage = UIImage(data: dogData) {
                     dogPhoto = dogImage
                     let urlString = self.dogURLArray[0].absoluteString
-                    //print("urlString used: \(urlString)")
+                    print("urlString used: \(urlString)")
                     self.dogURLArray.removeAll()
                     completionForShowRandomDog(dogPhoto, dogData, urlString, nil)
                 } else {
