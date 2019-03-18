@@ -13,22 +13,8 @@ class DogClient: NSObject {
     
     func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?) -> Void) {
         
-        let randomDogURL = URL(string: FlickrConstants.APIUrls.urlString)!
-        
         var dogPhoto = UIImage()
-        let request = URLRequest(url: randomDogURL)
         
-        taskForGetMethod(urlRequest: request) { (randomDogData, error) in
-            guard (error == nil) else {
-                completionForShowRandomDog(nil, nil, nil, "error in taskForGet: \(error!)")
-                return
-            }
-            
-            guard (randomDogData != nil) else {
-                completionForShowRandomDog(nil, nil, nil, "no dog data from taskForGet")
-                return
-            }
-            
             // CREATE RANDOM PAGE
             let maxFlickrResults = 4000
             let resultsPerPage = FlickrConstants.APIUrls.resultsPerPage
@@ -36,6 +22,7 @@ class DogClient: NSObject {
             
             //let randomPageNumber = Int(arc4random_uniform(UInt32(maxPageNumber)))
             let randomPageNumber = Int.random(in: 1...maxPageNumber)
+        print("randompage: \(randomPageNumber)")
             
             // TODO: CALL FUNC THAT EXECUTES SECOND NETWORK REQUEST WITH PAGE NUMBER
             self.searchForRandomDogUsing(pageNumber: randomPageNumber, url: FlickrConstants.APIUrls.urlString, completionForSearchForRandomDog: { (urlArray, error) in
@@ -60,6 +47,7 @@ class DogClient: NSObject {
                 if let dogData = try? Data(contentsOf: self.dogURLArray[0]), let dogImage = UIImage(data: dogData) {
                     dogPhoto = dogImage
                     let urlString = self.dogURLArray[0].absoluteString
+                    //print("urlString used: \(urlString)")
                     self.dogURLArray.removeAll()
                     completionForShowRandomDog(dogPhoto, dogData, urlString, nil)
                 } else {
@@ -68,7 +56,6 @@ class DogClient: NSObject {
                 }
             })
             
-            }.resume()
         
     }
     
