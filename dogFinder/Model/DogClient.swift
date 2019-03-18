@@ -34,8 +34,8 @@ class DogClient: NSObject {
             let resultsPerPage = FlickrConstants.APIUrls.resultsPerPage
             let maxPageNumber = (maxFlickrResults/resultsPerPage)
             
-            let randomPageNumber = Int(arc4random_uniform(UInt32(maxPageNumber)))
-            
+            //let randomPageNumber = Int(arc4random_uniform(UInt32(maxPageNumber)))
+            let randomPageNumber = Int.random(in: 1...maxPageNumber)
             
             // TODO: CALL FUNC THAT EXECUTES SECOND NETWORK REQUEST WITH PAGE NUMBER
             self.searchForRandomDogUsing(pageNumber: randomPageNumber, url: FlickrConstants.APIUrls.urlString, completionForSearchForRandomDog: { (urlArray, error) in
