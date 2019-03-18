@@ -176,8 +176,6 @@ class RandomDogViewController: UIViewController {
                 self.randomDogImageView.image = image
                 self.randomDogImageView.alpha = 1.0
                 
-                //print("urlString = \(urlString)")
-                
                 
                 if self.isFavorite() == true {
                     self.favoritesButton.isEnabled = true
@@ -191,7 +189,6 @@ class RandomDogViewController: UIViewController {
                 self.activityIndicator.stopAnimating()
             }
             
-            //self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
             self.tempDog.append(urlString)
             
         }
