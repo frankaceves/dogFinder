@@ -70,12 +70,12 @@ class DogClient: NSObject {
     }
     
     // FUNC - get list of URL's for random page of phtoos
-    func searchForRandomDogUsing(pageNumber: Int, url: String, completionForSearchForRandomDog: @escaping (_ urlArray: [URL]?, _ error: String?) -> Void){
+    func searchForRandomDogUsing(pageNumber: Int, url: String, completionForSearchForRandomDog: @escaping (_ urlArray: [URL]?, _ photosArray: [DogClient.FlickrConstants.Photo]?, _ error: String?) -> Void){
         
         let urlString = url.appending("&page=\(pageNumber)")
         let dogURL = URL(string: urlString)!
         var urlArray = [URL]()
-        
+        var photosArray = [DogClient.FlickrConstants.Photo]()
         //print("SEARCH FOR RANDOM - randomDogURL: \(dogURL)")
         
         let request = URLRequest(url: dogURL)
@@ -99,6 +99,7 @@ class DogClient: NSObject {
                     //print("SEARCH FOR RANDOM: using largeURL")
                     if photo.height_m! > photo.width_m! {
                         urlArray.append(mediumURL)
+                        photosArray.append(photo)
                         //print("added url: \(mediumURL)")
                     }
                 } else {
@@ -106,7 +107,7 @@ class DogClient: NSObject {
                 }
             } // end iteration
             
-            completionForSearchForRandomDog(urlArray, nil)
+            completionForSearchForRandomDog(urlArray, photosArray, nil)
         }.resume()
     }
     
