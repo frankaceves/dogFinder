@@ -141,7 +141,7 @@ class RandomDogViewController: UIViewController {
         activityIndicator.startAnimating()
         
         
-        DogClient.sharedInstance.showRandomDog { (image, imageData, urlString, error) in
+        DogClient.sharedInstance.showRandomDog { (image, imageData, urlString, error, attributionString) in
             
             guard error == nil else {
                 print("there was an error: \(error!)")
@@ -155,6 +155,11 @@ class RandomDogViewController: UIViewController {
             
             guard let imageData = imageData else {
                 print("no image data returned from showRandomDog")
+                return
+            }
+            
+            guard let attributionString = attributionString else {
+                print("no attribution string present")
                 return
             }
             
@@ -175,6 +180,9 @@ class RandomDogViewController: UIViewController {
             //if image is present, update UI with image, and check if it's a favorite.
             DispatchQueue.main.async {
                 self.randomDogImageView.image = image
+                print("image size: \(self.randomDogImageView.image!.size)")
+                print("image scale: \(self.randomDogImageView.image!.scale)")
+                
                 self.randomDogImageView.alpha = 1.0
                 
                 
@@ -187,7 +195,11 @@ class RandomDogViewController: UIViewController {
                 }
                 
                 self.reloadButton.isEnabled = true
+                self.attributionLabel.text = attributionString
+                self.attributionLabel.backgroundColor = .white
+                //self.attributionLabel.bounds = self.randomDogImageView.
                 self.activityIndicator.stopAnimating()
+                self.attributionLabel.isHidden = false
             }
             
             self.tempDog.append(urlString)
