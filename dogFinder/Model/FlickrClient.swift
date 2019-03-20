@@ -27,6 +27,7 @@ extension DogClient {
             let url_m: String?
             let height_m: String?
             let width_m: String?
+            let id: String?
         }
         
         
