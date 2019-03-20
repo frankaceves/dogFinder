@@ -11,7 +11,7 @@ import UIKit
 class DogClient: NSObject {
     var dogURLArray: [URL] = []
     
-    func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?) -> Void) {
+    func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?, _ attributionString: String?) -> Void) {
         
         var dogPhoto = UIImage()
         
@@ -22,41 +22,51 @@ class DogClient: NSObject {
             
             //let randomPageNumber = Int(arc4random_uniform(UInt32(maxPageNumber)))
             let randomPageNumber = Int.random(in: 1...maxPageNumber)
-        print("randompage: \(randomPageNumber)")
+            print("randompage: \(randomPageNumber)")
             
             // TODO: CALL FUNC THAT EXECUTES SECOND NETWORK REQUEST WITH PAGE NUMBER
-            self.searchForRandomDogUsing(pageNumber: randomPageNumber, url: FlickrConstants.APIUrls.urlString, completionForSearchForRandomDog: { (urlArray, error) in
+            self.searchForRandomDogUsing(pageNumber: randomPageNumber, url: FlickrConstants.APIUrls.urlString, completionForSearchForRandomDog: { (urlArray, photoArray, error) in
                 guard (error == nil) else {
-                    completionForShowRandomDog(nil, nil, nil, "there was an error")
+                    completionForShowRandomDog(nil, nil, nil, "there was an error", nil)
                     return
                 }
                 
                 guard let urlArray = urlArray else {
-                    completionForShowRandomDog(nil, nil, nil, "error: no array present")
+                    completionForShowRandomDog(nil, nil, nil, "error: no array present", nil)
                     return
                 }
                 
-                //print("SHOW RANDOM DOG>SEARCHRANDOM - urls = \(urlArray)")
-                self.dogURLArray = urlArray
+                guard let photoArray = photoArray else {
+                    completionForShowRandomDog(nil, nil, nil, "error: no photo Array present", nil)
+                    return
+                }
+                
+                //self.dogURLArray = urlArray
                 //print("dogURLArray = \(self.dogURLArray)")
-                self.dogURLArray.shuffle()
+                //self.dogURLArray.shuffle()
                 //print("dogURLArray shuffled = \(self.dogURLArray)")
                 
+                //need to pick URL from a random photo from PhotoArray
+                var shuffledPhotoArray = photoArray.shuffled()
+                let dogToUse = shuffledPhotoArray[0]
+                //print("dogToUse: \(dogToUse)")
                 
                 
-                if let dogData = try? Data(contentsOf: self.dogURLArray[0]), let dogImage = UIImage(data: dogData) {
+                let attribution = self.getOwnerInfoFrom(id: dogToUse.id!)
+                
+                
+                if let dogData = try? Data(contentsOf: (URL(string: dogToUse.url_m!)!)), let dogImage = UIImage(data: dogData) {
                     dogPhoto = dogImage
-                    let urlString = self.dogURLArray[0].absoluteString
+                    let urlString = dogToUse.url_m!
                     print("urlString used: \(urlString)")
+                    print(attribution)
                     self.dogURLArray.removeAll()
-                    completionForShowRandomDog(dogPhoto, dogData, urlString, nil)
+                    completionForShowRandomDog(dogPhoto, dogData, urlString, nil, attribution)
                 } else {
                     self.dogURLArray.removeAll()
-                    completionForShowRandomDog(nil, nil, nil, "no image present")
+                    completionForShowRandomDog(nil, nil, nil, "no image present", nil)
                 }
             })
-            
-        
     }
     
     // FUNC - get list of URL's for random page of phtoos
