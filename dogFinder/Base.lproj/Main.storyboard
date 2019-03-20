@@ -21,12 +21,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ycs-Na-QiK">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceC-UU-7mf">
+                                <rect key="frame" x="0.0" y="608" width="375" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ycs-Na-QiK" firstAttribute="top" secondItem="dPy-GR-G3A" secondAttribute="top" id="J2t-Cq-jke"/>
+                            <constraint firstItem="ceC-UU-7mf" firstAttribute="trailing" secondItem="Ycs-Na-QiK" secondAttribute="trailing" id="RhT-8P-aQB"/>
                             <constraint firstItem="Ycs-Na-QiK" firstAttribute="trailing" secondItem="dPy-GR-G3A" secondAttribute="trailing" id="VQO-Gz-5ER"/>
                             <constraint firstItem="Ycs-Na-QiK" firstAttribute="bottom" secondItem="dPy-GR-G3A" secondAttribute="bottom" id="bOe-OO-0Yf"/>
+                            <constraint firstItem="ceC-UU-7mf" firstAttribute="leading" secondItem="Ycs-Na-QiK" secondAttribute="leading" id="io3-Oy-00n"/>
+                            <constraint firstItem="ceC-UU-7mf" firstAttribute="bottom" secondItem="Ycs-Na-QiK" secondAttribute="bottom" constant="-10" id="l0i-X1-3FG"/>
                             <constraint firstItem="Ycs-Na-QiK" firstAttribute="leading" secondItem="dPy-GR-G3A" secondAttribute="leading" id="uGk-bh-HLd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dPy-GR-G3A"/>
@@ -47,6 +56,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="attributionLabel" destination="ceC-UU-7mf" id="NmZ-Vu-dfx"/>
                         <outlet property="favoritesButton" destination="hs5-S1-38L" id="HdJ-3W-nMr"/>
                         <outlet property="randomDogImageView" destination="Ycs-Na-QiK" id="WJo-XV-Qwy"/>
                         <outlet property="reloadButton" destination="g0u-ow-8Y5" id="QTy-zG-MfJ"/>
