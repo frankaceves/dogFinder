@@ -11,6 +11,7 @@ import CoreData
 
 class RandomDogViewController: UIViewController {
     
+    @IBOutlet weak var attributionLabel: UILabel!
     @IBOutlet var randomDogImageView: UIImageView!
     @IBOutlet var reloadButton: UIBarButtonItem!
     @IBOutlet var breedLabel: UILabel!
