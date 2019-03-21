@@ -11,6 +11,7 @@
 		2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822B13F214E083D00986774 /* FavoritesTableViewController.swift */; };
 		28827CAB213F828C003EBC8F /* shiba-8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 28827CAA213F828C003EBC8F /* shiba-8.JPG */; };
 		28ED27AB2169345B00471691 /* instruction-image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ED27AA2169345B00471691 /* instruction-image2.png */; };
+		7C1BC56322433D7400C44960 /* Dog-CoreDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BC56222433D7400C44960 /* Dog-CoreDataInfo.swift */; };
 		7C367F0D214ED56D0058C888 /* FavoriteDogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C367F0C214ED56D0058C888 /* FavoriteDogTableViewCell.swift */; };
 		7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A8CA214D8258009496CF /* DogFinder.xcdatamodeld */; };
 		7C96A8CF214D8600009496CF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A8CE214D8600009496CF /* DataController.swift */; };
@@ -29,6 +30,7 @@
 		2822B13F214E083D00986774 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		28827CAA213F828C003EBC8F /* shiba-8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "shiba-8.JPG"; sourceTree = "<group>"; };
 		28ED27AA2169345B00471691 /* instruction-image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instruction-image2.png"; sourceTree = "<group>"; };
+		7C1BC56222433D7400C44960 /* Dog-CoreDataInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dog-CoreDataInfo.swift"; sourceTree = "<group>"; };
 		7C367F0C214ED56D0058C888 /* FavoriteDogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDogTableViewCell.swift; sourceTree = "<group>"; };
 		7C96A8CB214D8258009496CF /* DogFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogFinder.xcdatamodel; sourceTree = "<group>"; };
 		7C96A8CE214D8600009496CF /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				2808E7E021670F3D00CF285E /* Reachability.swift */,
 				7CC9ABE221AFC9AD002C2C8C /* FlickrClient.swift */,
 				7CB67A75223F27BF007496CB /* FlickrAttribution-Client.swift */,
+				7C1BC56222433D7400C44960 /* Dog-CoreDataInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */,
 				2808E7E121670F3D00CF285E /* Reachability.swift in Sources */,
 				7CB67A76223F27BF007496CB /* FlickrAttribution-Client.swift in Sources */,
+				7C1BC56322433D7400C44960 /* Dog-CoreDataInfo.swift in Sources */,
 				7CBA0924213E19CF00B96781 /* AppDelegate.swift in Sources */,
 				7C367F0D214ED56D0058C888 /* FavoriteDogTableViewCell.swift in Sources */,
 			);
