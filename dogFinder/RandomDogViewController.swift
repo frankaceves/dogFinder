@@ -27,6 +27,7 @@ class RandomDogViewController: UIViewController {
     var tempDog: String = ""
     var breedArray: [String]!
     var imageData: Data?
+    var dogInfo = Dog(imageURL: nil, imageData: nil, id: nil, attribution: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,7 +132,10 @@ class RandomDogViewController: UIViewController {
     @IBAction func randomDogButtonPressed(_ sender: Any) {
         favoritesButton.isEnabled = false
         reloadButton.isEnabled = false
+        //clear temp info
         tempDog.removeAll()
+        print("currentDogInfo: \(self.dogInfo)")
+        
         favoritesButton.tintColor = nil
         
         activityIndicator.color = UIColor.blue
@@ -141,7 +145,7 @@ class RandomDogViewController: UIViewController {
         activityIndicator.startAnimating()
         
         
-        DogClient.sharedInstance.showRandomDog { (image, imageData, urlString, error, attributionString) in
+        DogClient.sharedInstance.showRandomDog { (image, imageData, urlString, error, attributionString, dog) in
             
             guard error == nil else {
                 print("there was an error: \(error!)")
@@ -163,7 +167,10 @@ class RandomDogViewController: UIViewController {
                 return
             }
             
-            self.imageData = imageData
+            guard let dog = dog else {
+                print("no dog entity returned")
+                return
+            }
             
             guard let image = image else {
                 print("no photo returned")
@@ -199,8 +206,14 @@ class RandomDogViewController: UIViewController {
                 self.attributionLabel.isHidden = false
             }
             
+            self.imageData = imageData
             self.tempDog.append(urlString)
-            
+            self.dogInfo = Dog(imageURL: urlString, imageData: imageData, id: dog.id!, attribution: attributionString)
+//            self.dogInfo.imageData = imageData
+//            self.dogInfo.imageURL = urlString
+//            self.dogInfo.attribution = attributionString
+//            self.dogInfo.id = dog.id!
+            print("newDogInfo: \(self.dogInfo)")
         }
     }
     
