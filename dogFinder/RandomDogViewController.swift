@@ -180,9 +180,6 @@ class RandomDogViewController: UIViewController {
             //if image is present, update UI with image, and check if it's a favorite.
             DispatchQueue.main.async {
                 self.randomDogImageView.image = image
-                print("image size: \(self.randomDogImageView.image!.size)")
-                print("image scale: \(self.randomDogImageView.image!.scale)")
-                
                 self.randomDogImageView.alpha = 1.0
                 
                 
