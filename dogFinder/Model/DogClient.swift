@@ -11,7 +11,7 @@ import UIKit
 class DogClient: NSObject {
     var dogURLArray: [URL] = []
     
-    func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?, _ attributionString: String?) -> Void) {
+    func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?, _ attributionString: String?, _ dog: DogClient.FlickrConstants.Photo?) -> Void) {
         
         var dogPhoto = UIImage()
         
@@ -27,17 +27,17 @@ class DogClient: NSObject {
             // TODO: CALL FUNC THAT EXECUTES SECOND NETWORK REQUEST WITH PAGE NUMBER
             self.searchForRandomDogUsing(pageNumber: randomPageNumber, url: FlickrConstants.APIUrls.urlString, completionForSearchForRandomDog: { (urlArray, photoArray, error) in
                 guard (error == nil) else {
-                    completionForShowRandomDog(nil, nil, nil, "there was an error", nil)
+                    completionForShowRandomDog(nil, nil, nil, "there was an error", nil, nil)
                     return
                 }
                 
                 guard let urlArray = urlArray else {
-                    completionForShowRandomDog(nil, nil, nil, "error: no array present", nil)
+                    completionForShowRandomDog(nil, nil, nil, "error: no array present", nil, nil)
                     return
                 }
                 
                 guard let photoArray = photoArray else {
-                    completionForShowRandomDog(nil, nil, nil, "error: no photo Array present", nil)
+                    completionForShowRandomDog(nil, nil, nil, "error: no photo Array present", nil, nil)
                     return
                 }
                 
@@ -63,10 +63,10 @@ class DogClient: NSObject {
                     print("urlString used: \(urlString)")
                     print(attribution)
                     self.dogURLArray.removeAll()
-                    completionForShowRandomDog(dogPhoto, dogData, urlString, nil, attribution)
+                    completionForShowRandomDog(dogPhoto, dogData, urlString, nil, attribution, dogToUse)
                 } else {
                     self.dogURLArray.removeAll()
-                    completionForShowRandomDog(nil, nil, nil, "no image present", nil)
+                    completionForShowRandomDog(nil, nil, nil, "no image present", nil, nil)
                 }
             })
     }
