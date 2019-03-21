@@ -47,7 +47,9 @@ class DogClient: NSObject {
                 //print("dogURLArray shuffled = \(self.dogURLArray)")
                 
                 //need to pick URL from a random photo from PhotoArray
+                //print("photoArray: \(photoArray)")
                 var shuffledPhotoArray = photoArray.shuffled()
+                //print("shuffled photoArray count: \(shuffledPhotoArray.count)")
                 let dogToUse = shuffledPhotoArray[0]
                 //print("dogToUse: \(dogToUse)")
                 
@@ -97,11 +99,13 @@ class DogClient: NSObject {
             for photo in photoArray {
                 if let mediumUrlString = photo.url_m, let mediumURL = URL(string: mediumUrlString)  {
                     //print("SEARCH FOR RANDOM: using largeURL")
-                    if photo.height_m! > photo.width_m! {
-                        urlArray.append(mediumURL)
-                        photosArray.append(photo)
-                        //print("added url: \(mediumURL)")
-                    }
+//                    if photo.height_m! > photo.width_m! {
+//                        urlArray.append(mediumURL)
+//                        photosArray.append(photo)
+//                        //print("added url: \(mediumURL)")
+//                    }
+                    urlArray.append(mediumURL)
+                    photosArray.append(photo)
                 } else {
                     //print("SEARCH FOR RANDOM: can't get url")
                 }
