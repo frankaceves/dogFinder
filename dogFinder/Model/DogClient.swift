@@ -51,13 +51,8 @@ class DogClient: NSObject {
                 return
             }
             
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
-                completionForGet(nil, "no status code returned")
-                return
-            }
-            
-            if statusCode < 200 {
-                completionForGet(nil, "Status code was not lower than 200: \(statusCode)")
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode < 200 else {
+                completionForGet(nil, "Status code error: \(error!.localizedDescription)")
                 return
             }
             
