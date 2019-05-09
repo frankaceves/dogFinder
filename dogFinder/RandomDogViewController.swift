@@ -85,7 +85,6 @@ class RandomDogViewController: UIViewController {
     }
     
     func shouldEnable() -> Bool {
-        //if tempDog is empty, disable buttons
         if tempDog.isEmpty {
             return false
         } else {
