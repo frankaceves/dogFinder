@@ -74,7 +74,6 @@ class DogClient: NSObject {
             decodedResults = try JSONDecoder().decode(Constants.RandomDog.self, from: randomDogData)
             completionForJSONConversion(decodedResults, nil)
         } catch {
-            print("error decoding randomDog JSON: \(error.localizedDescription)")
             completionForJSONConversion(nil, error.localizedDescription)
         }
     } // CONVERT TO JSON
