@@ -244,10 +244,9 @@ class RandomDogViewController: UIViewController {
                     dataController.viewContext.delete(dog)
                 }
             }
-            //save context
+
             do {
                 try dataController.viewContext.save()
-                
             } catch {
                 fatalError("could not delete Dog entity: \(error.localizedDescription)")
             }
