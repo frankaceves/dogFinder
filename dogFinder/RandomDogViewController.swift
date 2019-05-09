@@ -238,12 +238,13 @@ class RandomDogViewController: UIViewController {
     
     func removeDog(dogInfo: [String:String]) {
         let favoriteDogs = fetchedResultsController.fetchedObjects!
+        
         for (url, _) in dogInfo {
-            for dog in favoriteDogs {
-                if url == dog.photoURL {
-                    dataController.viewContext.delete(dog)
-                }
-            }
+            let dog = favoriteDogs.filter {
+                $0.photoURL == url
+            }[0]
+            
+            dataController.viewContext.delete(dog)
 
             do {
                 try dataController.viewContext.save()
