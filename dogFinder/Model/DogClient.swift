@@ -86,7 +86,7 @@ class DogClient: NSObject {
         var subBreed: String!
         
         var fullBreed = urlString.replacingOccurrences(of: "https://images.dog.ceo/breeds/", with: "").capitalized
-        if let slashIndex = fullBreed.index(of: "/") {
+        if let slashIndex = fullBreed.firstIndex(of: "/") {
             fullBreed = String(fullBreed[..<slashIndex])
         }
         
