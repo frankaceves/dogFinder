@@ -95,8 +95,10 @@ class RandomDogViewController: UIViewController {
     func isFavorite() -> Bool {
         if let fetchedDogs = fetchedResultsController.fetchedObjects {
             for dog in fetchedDogs {
-                if tempDog.keys.contains(dog.photoURL!) {
-                    return true
+                if let dogPhotoUrl = dog.photoURL {
+                    if tempDog.keys.contains(dogPhotoUrl) {
+                        return true
+                    }
                 }
             }
         }
