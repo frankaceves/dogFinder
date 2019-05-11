@@ -91,9 +91,7 @@ class FavoritesTableViewController: UITableViewController {
         // Configure cell from CoreData
         cell.favoriteDogBreedLabel.text = "Breed: \(dog.breed ?? "No Breed Info Available")"
         
-        
-        if dog.imageData != nil {
-            let dogImage = UIImage(data: dog.imageData!)
+        if let dogData = dog.imageData, let dogImage = UIImage(data: dogData) {
             cell.favoriteDogImageView.image = dogImage
             return cell
         } else {
