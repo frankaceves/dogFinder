@@ -22,7 +22,6 @@ class RandomDogViewController: UIViewController {
     var dataController: DataController!
     let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
-    var favoriteDogs = [[String: String]]()
     var tempDog: [String: String] = [:]
     var breedArray: [String]!
     var imageData: Data?
