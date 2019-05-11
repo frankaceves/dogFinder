@@ -194,6 +194,8 @@ class RandomDogViewController: UIViewController {
                 self.breedLabel.text = "Breed: \(self.breedArray[0])"
                 self.breedLabel.isHidden = false
                 
+                assert(self.tempDog.isEmpty != true, "tempDog is false")
+                
                 if self.isFavorite() == true {
                     self.favoritesButton.isEnabled = true
                     self.favoritesButton.tintColor = UIColor.red
