@@ -184,6 +184,8 @@ class RandomDogViewController: UIViewController {
             
             self.breedArray = DogClient.sharedInstance.getBreedAndSubBreed(urlString: urlString)
             
+            self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
+            
             DispatchQueue.main.async {
                 self.breedSegControl.isHidden = false
                 self.breedSegControl.isEnabled = true
@@ -204,7 +206,7 @@ class RandomDogViewController: UIViewController {
                 self.activityIndicator.stopAnimating()
             }
             
-            self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
+            
             
         }
     }
