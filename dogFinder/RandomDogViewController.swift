@@ -151,7 +151,7 @@ class RandomDogViewController: UIViewController {
         activityIndicator.startAnimating()
         breedSegControl.selectedSegmentIndex = 0
         
-        DogClient.sharedInstance.showRandomDog { (image, imageData, urlString, error) in
+        DogClient.sharedInstance.showRandomDog { [unowned self] (image, imageData, urlString, error) in
             
             guard error == nil else {
                 print("there was an error: \(error!)")
