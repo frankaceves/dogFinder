@@ -10,6 +10,31 @@ import UIKit
 
 class DogClient: NSObject {
     
+    func showRandomDog(completionRandom: @escaping (_ dog: Dog?, _ error: String?) -> Void) {
+        let randomDogURL = URL(string: Constants.APIUrls.randomDogAPIString)!
+        let request = URLRequest(url: randomDogURL)
+        
+        taskForGetMethod(urlRequest: request) { (results, error) in
+            guard error == nil else {
+                completionRandom(nil, "error getting Dog")
+                return
+            }
+            
+            guard let results = results else {
+                completionRandom(nil, "no results")
+                return
+            }
+            
+            var dog = Dog(urlString: results.message)
+            dog.getBreedAndSubBreed()
+            dog.getImageData(from: dog.urlString)
+            //this info goes back to viewController, but should we only return the image?
+            //should we create an imageModel, then from VC access the dog info?
+            completionRandom(dog, nil)
+            
+        }.resume()
+    }
+    
     
     func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?) -> Void) {
         
