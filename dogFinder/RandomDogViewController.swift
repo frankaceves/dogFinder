@@ -31,8 +31,7 @@ class RandomDogViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         breedLabel.isHidden = true
-        breedSegControl.isHidden = true
-        
+        activityIndicator.color = UIColor.blue
         randomDogButtonPressed(self)
     }
     
