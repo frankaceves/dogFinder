@@ -124,16 +124,36 @@ class RandomDogViewController: UIViewController {
     // MARK: - ACTIONS
     @IBAction func showBreedOrSubBreed(_ sender: UISegmentedControl) {
         switch breedSegControl.selectedSegmentIndex {
-        case 1:
-            if breedArray.count > 1 {
-                breedLabel.text = "Sub-Breed: \(breedArray[1])"
+        case 1: // show SubBreed info, if present
+            if currentDog.subBreed != "" {
+                breedLabel.text = "Sub-Breed: \(currentDog.subBreed)"
             } else {
-                breedLabel.text = "No Sub-Breed Found"
+                breedLabel.text = "No Sub-Breed Information"
             }
-        default:
-            if breedLabel.text != breedArray[0] {
-                breedLabel.text = "Breed: \(breedArray[0])"
-            }
+        default: // show breed
+            breedLabel.text = "Breed: \(currentDog.breed)"
+        }
+    }
+    
+    func configureLoadView(isLoading: Bool) {
+        //disable/enable these on load
+        reloadButton.isEnabled = !isLoading
+        favoritesButton.isEnabled = !isLoading
+        breedSegControl.isEnabled = !isLoading
+        
+        switch isLoading { //configure non-boolean view related objects
+        case true:
+            tempDog.removeAll()
+            favoritesButton.tintColor = nil
+            activityIndicator.frame = randomDogImageView.bounds
+            randomDogImageView.addSubview(activityIndicator)
+            randomDogImageView.alpha = 0.5
+            activityIndicator.startAnimating()
+            breedSegControl.selectedSegmentIndex = 0
+        default: //false - not loading
+            randomDogImageView.alpha = 1.0
+            breedLabel.isHidden = false
+            activityIndicator.stopAnimating()
         }
     }
     
