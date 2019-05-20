@@ -158,78 +158,26 @@ class RandomDogViewController: UIViewController {
     }
     
     @IBAction func randomDogButtonPressed(_ sender: Any) {
-        favoritesButton.isEnabled = false
-        reloadButton.isEnabled = false
-        tempDog.removeAll()
-        favoritesButton.tintColor = nil
-        breedSegControl.isEnabled = false
-        activityIndicator.color = UIColor.blue
-        activityIndicator.frame = randomDogImageView.bounds
-        randomDogImageView.addSubview(activityIndicator)
-        randomDogImageView.alpha = 0.5
-        activityIndicator.startAnimating()
-        breedSegControl.selectedSegmentIndex = 0
+        configureLoadView(isLoading: true)
         
-        DogClient.sharedInstance.showRandomDog { [unowned self] (image, imageData, urlString, error) in
-            
+        DogClient.sharedInstance.showRandomDog { [unowned self] (dog, error) in
             guard error == nil else {
-                print("there was an error: \(error!)")
+                return
+            }
+            guard let dog = dog else {
                 return
             }
             
-            guard let urlString = urlString else {
-                print("no dogURL string returned from showRandomDog")
-                return
-            }
-            
-            guard let imageData = imageData else {
-                print("no image data returned from showRandomDog")
-                return
-            }
-            
-            self.imageData = imageData
-            
-            guard let image = image else {
-                print("no photo returned")
-                
-                DispatchQueue.main.async {
-                    self.randomDogImageView.image = #imageLiteral(resourceName: "shiba-8.JPG")
-                    self.breedLabel.text = "No Photo Available"
-                    self.breedLabel.isHidden = false
-                    self.activityIndicator.stopAnimating()
-                }
-                
-                return
-            }
-            
-            self.breedArray = DogClient.sharedInstance.getBreedAndSubBreed(urlString: urlString)
-            
-            self.tempDog.updateValue(self.breedArray[0], forKey: urlString)
+            self.currentDog = dog
             
             DispatchQueue.main.async {
-                self.breedSegControl.isHidden = false
-                self.breedSegControl.isEnabled = true
-                self.randomDogImageView.image = image
-                self.randomDogImageView.alpha = 1.0
-                self.breedLabel.text = "Breed: \(self.breedArray[0])"
-                self.breedLabel.isHidden = false
+                let image = RandomDogImage()
                 
-                assert(self.tempDog.isEmpty != true, "tempDog is false")
-                
-                if self.isFavorite() == true {
-                    self.favoritesButton.isEnabled = true
-                    self.favoritesButton.tintColor = UIColor.red
-                } else {
-                    self.favoritesButton.isEnabled = true
-                    self.favoritesButton.tintColor = nil
-                }
-                
-                self.reloadButton.isEnabled = true
-                self.activityIndicator.stopAnimating()
+                self.randomDogImageView.image = image.getImageFrom(dog.imageData)
+                self.configureLoadView(isLoading: false)
+                self.breedLabel.text = dog.breed
+                // MARK: TODO: CHECK IF DOG IS FAVORITE
             }
-            
-            
-            
         }
     }
     
