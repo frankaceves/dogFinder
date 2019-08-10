@@ -91,17 +91,12 @@ class RandomDogViewController: UIViewController {
         }
     }
     
-    func isFavorite() -> Bool {
+    func isFavorite(dog: Dog) -> Bool {
         if let fetchedDogs = fetchedResultsController.fetchedObjects {
-            for dog in fetchedDogs {
-                if let dogPhotoUrl = dog.photoURL {
-                    if tempDog.keys.contains(dogPhotoUrl) {
-                        return true
-                    }
-                }
+            return fetchedDogs.contains { fetchedDog in
+                fetchedDog.photoURL == dog.urlString
             }
         }
-        
         return false
     }
     
