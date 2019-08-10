@@ -55,12 +55,10 @@ class RandomDogViewController: UIViewController {
             print("could not start reachability notifier: \(error.localizedDescription)")
         }
         
+        // update favoritesButton based on isFavorite status
         if let currentDog = currentDog {
-            print("WILLAPPEAR: currentDog = \(currentDog)")
             if isFavorite(dog: currentDog) == true {
-                print("WILL APPEAR: match")
             } else {
-                print("WILL APPEAR: no match")
                 favoritesButton.tintColor = nil
             }
         }
