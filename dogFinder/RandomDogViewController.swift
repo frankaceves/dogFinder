@@ -210,21 +210,19 @@ class RandomDogViewController: UIViewController {
         }
     }
     
-    func removeDog(dogInfo: [String:String]) {
+    func removeDog(dogInfo: Dog) {
         let favoriteDogs = fetchedResultsController.fetchedObjects!
         
-        for (url, _) in dogInfo {
-            let dog = favoriteDogs.filter {
-                $0.photoURL == url
-            }[0]
-            
-            dataController.viewContext.delete(dog)
-
-            do {
-                try dataController.viewContext.save()
-            } catch {
-                fatalError("could not delete Dog entity: \(error.localizedDescription)")
-            }
+        let matchingDog = favoriteDogs.filter {
+            $0.photoURL == dogInfo.urlString
+        }[0]
+        
+        dataController.viewContext.delete(matchingDog)
+        
+        do {
+            try dataController.viewContext.save()
+        } catch {
+            fatalError("could not delete Dog entity: \(error.localizedDescription)")
         }
     }
     
