@@ -22,7 +22,6 @@ class RandomDogViewController: UIViewController {
     var dataController: DataController!
     let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
-    var tempDog: [String: String] = [:]
     var currentDog: Dog!
     var breedArray: [String]!
     var imageData: Data?
@@ -84,9 +83,9 @@ class RandomDogViewController: UIViewController {
     }
     
     func shouldEnable() -> Bool {
-        if tempDog.isEmpty {
+        if currentDog == nil {
             return false
-        } else {
+        } else { //currentDog != nil
             return true
         }
     }
@@ -138,7 +137,8 @@ class RandomDogViewController: UIViewController {
         
         switch isLoading { //configure non-boolean view related objects
         case true:
-            tempDog.removeAll()
+            //tempDog.removeAll()
+            currentDog = nil
             favoritesButton.tintColor = nil
             activityIndicator.frame = randomDogImageView.bounds
             randomDogImageView.addSubview(activityIndicator)
@@ -227,7 +227,6 @@ class RandomDogViewController: UIViewController {
             favoritesButton.tintColor = nil
             try? fetchedResultsController.performFetch()
         } else {
-            //addDog(dogInfo: tempDog)
             addDog(dogInfo: currentDog)
             favoritesButton.tintColor = UIColor.red
             try? fetchedResultsController.performFetch()
