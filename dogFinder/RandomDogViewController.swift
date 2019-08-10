@@ -222,8 +222,8 @@ class RandomDogViewController: UIViewController {
     }
     
     @IBAction func favoritesButtonPressed(_ sender: Any) {
-        if isFavorite() == true {
-            removeDog(dogInfo: tempDog)
+        if isFavorite(dog: currentDog) == true {
+            removeDog(dogInfo: currentDog)
             favoritesButton.tintColor = nil
             try? fetchedResultsController.performFetch()
         } else {
