@@ -234,7 +234,8 @@ class RandomDogViewController: UIViewController {
             favoritesButton.tintColor = nil
             try? fetchedResultsController.performFetch()
         } else {
-            addDog(dogInfo: tempDog)
+            //addDog(dogInfo: tempDog)
+            addDog(dogInfo: currentDog)
             favoritesButton.tintColor = UIColor.red
             try? fetchedResultsController.performFetch()
         }
