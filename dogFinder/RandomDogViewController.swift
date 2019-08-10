@@ -181,23 +181,25 @@ class RandomDogViewController: UIViewController {
         }
     }
     
-    func addDog(dogInfo: [String:String]) {
+    func addDog(dogInfo: Dog) {
         //get components of dogInfo = [urlString: Breed]
         var url: String!
         var breed: String!
         
-        for (x, y) in dogInfo {
-            url = x
-            breed = y
-        }
+        //not needed with Dog Model?
+//        for (x, y) in dogInfo {
+//            url = x
+//            breed = y
+//        }
         
         //create FavoriteDog entity
         let dog = FavoriteDog(context: dataController.viewContext)
         
         //assign attributes
-        dog.photoURL = url
-        dog.breed = breed
-        dog.imageData = imageData
+        dog.photoURL = dogInfo.urlString
+        dog.breed = dogInfo.breed
+        dog.subBreed = dogInfo.subBreed
+        dog.imageData = dogInfo.imageData
         
         //save context
         do {
