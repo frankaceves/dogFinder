@@ -57,8 +57,7 @@ class RandomDogViewController: UIViewController {
         
         // update favoritesButton based on isFavorite status
         if let currentDog = currentDog {
-            if isFavorite(dog: currentDog) == true {
-            } else {
+            if !isFavorite(dog: currentDog) {
                 favoritesButton.tintColor = nil
             }
         }
