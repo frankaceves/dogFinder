@@ -143,7 +143,6 @@ class RandomDogViewController: UIViewController {
         
         switch isLoading { //configure non-boolean view related objects
         case true:
-            //tempDog.removeAll()
             currentDog = nil
             favoritesButton.tintColor = nil
             activityIndicator.frame = randomDogImageView.bounds
@@ -183,15 +182,6 @@ class RandomDogViewController: UIViewController {
     }
     
     func addDog(dogInfo: Dog) {
-        //get components of dogInfo = [urlString: Breed]
-        var url: String!
-        var breed: String!
-        
-        //not needed with Dog Model?
-//        for (x, y) in dogInfo {
-//            url = x
-//            breed = y
-//        }
         
         //create FavoriteDog entity
         let dog = FavoriteDog(context: dataController.viewContext)
