@@ -15,6 +15,8 @@ class FavoritesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //tableView.rowHeight = UITableView.automaticDimension
+        //tableView.estimatedRowHeight = 300
     }
     
     let reachability = Reachability()!
@@ -84,7 +86,7 @@ class FavoritesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dogCell", for: indexPath) as! FavoriteDogTableViewCell
         
-        cell.favoriteDogImageView.image = nil
+        //cell.favoriteDogImageView.image = nil
         
         let dog = fetchedResultsController.fetchedObjects![indexPath.row]
         
@@ -93,13 +95,17 @@ class FavoritesTableViewController: UITableViewController {
         
         if let dogData = dog.imageData, let dogImage = UIImage(data: dogData) {
             cell.favoriteDogImageView.image = dogImage
-            return cell
+            //cell.frame.size.height = dogImage.size.height
+            //return cell
+            print("dogImage size: \(dogImage.size.width)w, \(dogImage.size.height)h for indexPathRow: \(indexPath.row)")
         } else {
             print("no dog image present")
             cell.favoriteDogImageView.image = #imageLiteral(resourceName: "shiba-8.JPG")
         }
         
-
+        cell.backgroundColor = .green
+        print("cell size: \(cell.frame.size.width)w, \(cell.frame.size.height)h for indexPathRow: \(indexPath.row)")
+        
         return cell
     }
     
