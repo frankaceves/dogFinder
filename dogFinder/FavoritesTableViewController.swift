@@ -15,8 +15,8 @@ class FavoritesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.rowHeight = UITableView.automaticDimension
-        //tableView.estimatedRowHeight = 300
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 300
     }
     
     let reachability = Reachability()!
