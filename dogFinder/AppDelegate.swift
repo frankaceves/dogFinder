@@ -15,14 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let dataController = DataController(modelName: "DogFinder")
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         dataController.load()
         
         // inject Data Controller into RandomDogVC
         let tabBarViewController = window?.rootViewController as? UITabBarController
         
-        if let childViewControllers = tabBarViewController?.childViewControllers as? [UINavigationController] {
+        if let childViewControllers = tabBarViewController?.children as? [UINavigationController] {
             let firstChild = childViewControllers[0]
             let randomDogViewController = firstChild.topViewController as! RandomDogViewController
             randomDogViewController.dataController = dataController

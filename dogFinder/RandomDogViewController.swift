@@ -20,7 +20,7 @@ class RandomDogViewController: UIViewController {
     var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
     
     var dataController: DataController!
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
     var favoriteDogs = [[String: String]]()
     var tempDog: [String: String] = [:]
