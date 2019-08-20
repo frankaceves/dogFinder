@@ -103,16 +103,16 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print("HEIGHT")
+        //print("HEIGHT")
         let dog = fetchedResultsController.fetchedObjects![indexPath.row]
         guard let dogData = dog.imageData, let dogImage = UIImage(data: dogData) else {
             print("error getting dog data, returning 44")
             return 44
         }
-        print("dog image dimensions: \(dogImage.size)")
+        //print("dog image dimensions: \(dogImage.size)")
         let imageRatio = CGFloat(dogImage.size.width / dogImage.size.height)
         
-        print("returning height of \(tableView.frame.width / imageRatio)")
+        //print("returning height of \(tableView.frame.width / imageRatio)")
         return tableView.frame.width / imageRatio
     }
 
