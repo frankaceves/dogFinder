@@ -15,8 +15,6 @@ class FavoritesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 300
     }
     
     let reachability = Reachability()!
@@ -95,18 +93,27 @@ class FavoritesTableViewController: UITableViewController {
         
         if let dogData = dog.imageData, let dogImage = UIImage(data: dogData) {
             cell.favoriteDogImageView.image = dogImage
-            //cell.frame.size.height = dogImage.size.height
-            //return cell
-            print("dogImage size: \(dogImage.size.width)w, \(dogImage.size.height)h for indexPathRow: \(indexPath.row)")
         } else {
             print("no dog image present")
             cell.favoriteDogImageView.image = #imageLiteral(resourceName: "shiba-8.JPG")
         }
         
-        cell.backgroundColor = .green
-        print("cell size: \(cell.frame.size.width)w, \(cell.frame.size.height)h for indexPathRow: \(indexPath.row)")
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        print("HEIGHT")
+        let dog = fetchedResultsController.fetchedObjects![indexPath.row]
+        guard let dogData = dog.imageData, let dogImage = UIImage(data: dogData) else {
+            print("error getting dog data, returning 44")
+            return 44
+        }
+        print("dog image dimensions: \(dogImage.size)")
+        let imageRatio = CGFloat(dogImage.size.width / dogImage.size.height)
+        
+        print("returning height of \(tableView.frame.width / imageRatio)")
+        return tableView.frame.width / imageRatio
     }
 
     
