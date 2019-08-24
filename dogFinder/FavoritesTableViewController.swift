@@ -20,6 +20,37 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     let reachability = Reachability()!
+    var commitPredicate: NSPredicate?
+    
+    @objc func filterByBreed() {
+        print("filter tapped")
+        var breeds: [String] = []
+        //var uniqueBreeds: [String] = []
+        var ac = UIAlertController()
+        if let fetchedObjects = fetchedResultsController.fetchedObjects, !fetchedObjects.isEmpty {
+            breeds = Array(Set(fetchedObjects.compactMap { $0.breed })).sorted()
+            
+            ac = UIAlertController(title: "Filter By Breed", message: "Choose which breed you only want to see", preferredStyle: .actionSheet)
+            
+            for breed in breeds {
+                ac.addAction(UIAlertAction(title: breed, style: .default, handler: { [unowned self] _ in
+                    //self.commitPredicate = NSPredicate(format: <#T##String#>, argumentArray: <#T##[Any]?#>)
+                }))
+            }
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        } else {
+            ac = UIAlertController(title: "No Breeds To Filter", message: "Start favoriting dogs in the search tab, then you can filter", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+        }
+        
+        
+        
+        
+        
+        present(ac, animated: true, completion: nil)
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
