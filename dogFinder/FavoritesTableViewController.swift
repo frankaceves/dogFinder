@@ -33,7 +33,11 @@ class FavoritesTableViewController: UITableViewController {
             
             for breed in breeds {
                 ac.addAction(UIAlertAction(title: breed, style: .default, handler: { [unowned self] _ in
-                    //self.commitPredicate = NSPredicate(format: <#T##String#>, argumentArray: <#T##[Any]?#>)
+                    let breedName = breed
+                    self.commitPredicate = NSPredicate(format: "breed == %@", breedName)
+                    //load saved data, i.e. create a fetch request and performFetch.
+                    print("commit predicate: \(self.commitPredicate!)")
+                    self.loadSavedData()
                 }))
             }
             
