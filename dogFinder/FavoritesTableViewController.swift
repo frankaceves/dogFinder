@@ -100,6 +100,8 @@ class FavoritesTableViewController: UITableViewController {
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
+        fetchedResultsController.fetchRequest.predicate = commitPredicate
+        
         do {
             try fetchedResultsController.performFetch()
         } catch {
