@@ -25,7 +25,6 @@ class FavoritesTableViewController: UITableViewController {
     @objc func filterByBreed() {
         print("filter tapped")
         var breeds: [String] = []
-        //var uniqueBreeds: [String] = []
         var ac = UIAlertController()
         if let fetchedObjects = fetchedResultsController.fetchedObjects, !fetchedObjects.isEmpty {
             breeds = Array(Set(fetchedObjects.compactMap { $0.breed })).sorted()
