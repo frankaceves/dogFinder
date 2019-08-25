@@ -41,6 +41,11 @@ class FavoritesTableViewController: UITableViewController {
                 }))
             }
             
+            ac.addAction(UIAlertAction(title: "Show All Breeds", style: .default, handler: { [unowned self] _ in
+                self.commitPredicate = nil
+                //load saved data, i.e. create a fetch request and performFetch.
+                self.loadSavedData()
+            }))
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         } else {
