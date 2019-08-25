@@ -108,6 +108,28 @@ class FavoritesTableViewController: UITableViewController {
             fatalError("error fetching favorites in FavTableVC: \(error.localizedDescription)")
         }
     }
+    
+    func loadSavedData() {
+        if fetchedResultsController != nil {
+        
+            let request: NSFetchRequest<FavoriteDog> = FavoriteDog.fetchRequest()
+            let sort = NSSortDescriptor(key: "breed", ascending: true)
+            request.sortDescriptors = [sort]
+            //request.fetchBatchSize = 20
+            
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+            //fetchedResultsController.delegate = self
+            
+            fetchedResultsController.fetchRequest.predicate = commitPredicate
+            
+            do {
+                try fetchedResultsController.performFetch()
+                tableView.reloadData()
+            } catch {
+                print("Fetch failed: \(error.localizedDescription)")
+            }
+        }
+    }
 
     // MARK: - Table view data source
 
