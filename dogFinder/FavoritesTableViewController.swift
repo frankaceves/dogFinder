@@ -57,8 +57,7 @@ class FavoritesTableViewController: UITableViewController {
                 } //end breed in breeds
             } // end SWITCH isFiltered
         } else {
-            ac = UIAlertController(title: "No Breeds To Filter", message: "Start favoriting dogs in the search tab, then you can filter", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+            ac = UIAlertController(title: "No Breeds To Filter", message: "Start favoriting dogs in the search tab, then you can filter by breed.", preferredStyle: .alert)
         }
         
         
