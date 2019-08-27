@@ -12,6 +12,7 @@ import CoreData
 class FavoritesTableViewController: UITableViewController {
     var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
     var dataController: DataController!
+    var isFiltered: Bool = false //initial state of app is non-filtered state.
     
     override func viewDidLoad() {
         super.viewDidLoad()
