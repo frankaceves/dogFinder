@@ -27,28 +27,35 @@ class FavoritesTableViewController: UITableViewController {
         print("filter tapped")
         var breeds: [String] = []
         var ac = UIAlertController()
+        
+        
+        
+        // if fetchedObjects is not empty, that means we have breeds we can filter
         if let fetchedObjects = fetchedResultsController.fetchedObjects, !fetchedObjects.isEmpty {
             breeds = Array(Set(fetchedObjects.compactMap { $0.breed })).sorted()
             
-            ac = UIAlertController(title: "Filter By Breed", message: "Choose which breed you only want to see", preferredStyle: .actionSheet)
-            
-            for breed in breeds {
-                ac.addAction(UIAlertAction(title: breed, style: .default, handler: { [unowned self] _ in
-                    let breedName = breed
-                    self.commitPredicate = NSPredicate(format: "breed == %@", breedName)
+            switch isFiltered {
+            case true:
+                ac.addAction(UIAlertAction(title: "Show All Breeds", style: .default, handler: { [unowned self] _ in
+                    self.commitPredicate = nil
+                    self.isFiltered = false
                     //load saved data, i.e. create a fetch request and performFetch.
-                    print("commit predicate: \(self.commitPredicate!)")
                     self.loadSavedData()
                 }))
-            }
-            
-            ac.addAction(UIAlertAction(title: "Show All Breeds", style: .default, handler: { [unowned self] _ in
-                self.commitPredicate = nil
-                //load saved data, i.e. create a fetch request and performFetch.
-                self.loadSavedData()
-            }))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
+            default:
+                ac = UIAlertController(title: "Filter By Breed", message: "Choose which breed you only want to see", preferredStyle: .actionSheet)
+                    
+                for breed in breeds {
+                    ac.addAction(UIAlertAction(title: breed, style: .default, handler: { [unowned self] _ in
+                        let breedName = breed
+                        self.commitPredicate = NSPredicate(format: "breed == %@", breedName)
+                        //load saved data, i.e. create a fetch request and performFetch.
+                        print("commit predicate: \(self.commitPredicate!)")
+                        self.isFiltered = true
+                        self.loadSavedData()
+                    }))
+                } //end breed in breeds
+            } // end SWITCH isFiltered
         } else {
             ac = UIAlertController(title: "No Breeds To Filter", message: "Start favoriting dogs in the search tab, then you can filter", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -57,7 +64,7 @@ class FavoritesTableViewController: UITableViewController {
         
         
         
-        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true, completion: nil)
     }
     
