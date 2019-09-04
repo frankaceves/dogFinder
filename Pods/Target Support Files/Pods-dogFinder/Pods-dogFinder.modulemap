@@ -1,0 +1,6 @@
+framework module Pods_dogFinder {
+  umbrella header "Pods-dogFinder-umbrella.h"
+
+  export *
+  module * { export * }
+}
