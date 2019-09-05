@@ -163,6 +163,48 @@
             </objects>
             <point key="canvasLocation" x="1414.4927536231885" y="463.39285714285711"/>
         </scene>
+        <!--Dog Graph View Controller-->
+        <scene sceneID="q21-ti-cPn">
+            <objects>
+                <viewController id="1LZ-EL-owY" userLabel="Dog Graph View Controller" customClass="DogGraphViewController" customModule="dogFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QIN-Wm-gxj" userLabel="Outer View">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B63-98-yDq" userLabel="Pie Wrapper">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evH-eY-Oje" customClass="PieChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="evH-eY-Oje" firstAttribute="top" secondItem="B63-98-yDq" secondAttribute="top" id="0Fc-rz-qX7"/>
+                                    <constraint firstAttribute="bottom" secondItem="evH-eY-Oje" secondAttribute="bottom" id="0vY-Ia-9ho"/>
+                                    <constraint firstAttribute="trailing" secondItem="evH-eY-Oje" secondAttribute="trailing" id="hIw-g6-1ha"/>
+                                    <constraint firstItem="evH-eY-Oje" firstAttribute="leading" secondItem="B63-98-yDq" secondAttribute="leading" id="xKm-tU-T7U"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="B63-98-yDq" firstAttribute="trailing" secondItem="vCk-iM-8ft" secondAttribute="trailing" id="H6P-0H-bX7"/>
+                            <constraint firstItem="B63-98-yDq" firstAttribute="bottom" secondItem="vCk-iM-8ft" secondAttribute="bottom" id="ZWM-wv-2j9"/>
+                            <constraint firstItem="B63-98-yDq" firstAttribute="top" secondItem="vCk-iM-8ft" secondAttribute="top" id="aev-Cr-CkT"/>
+                            <constraint firstItem="B63-98-yDq" firstAttribute="leading" secondItem="vCk-iM-8ft" secondAttribute="leading" id="rwp-FQ-Uj4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vCk-iM-8ft"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6N2-eM-omV"/>
+                    <connections>
+                        <outlet property="pieChart" destination="evH-eY-Oje" id="Khx-f3-j68"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jow-Vw-8jB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2285.507246376812" y="1518.75"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ItZ-DA-jCP">
             <objects>
@@ -175,6 +217,7 @@
                     <connections>
                         <segue destination="GVl-BW-vOP" kind="relationship" relationship="viewControllers" id="mGy-aO-GUT"/>
                         <segue destination="5Je-na-oe0" kind="relationship" relationship="viewControllers" id="EUX-g9-dlJ"/>
+                        <segue destination="XEj-p5-x7F" kind="relationship" relationship="viewControllers" id="OSp-in-XIF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADH-1k-X2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,8 +262,28 @@
             </objects>
             <point key="canvasLocation" x="562" y="464"/>
         </scene>
+        <!--Dog Graph-->
+        <scene sceneID="BoN-Sb-Ih8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XEj-p5-x7F" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Dog Graph" image="circle.grid.hex.fill" catalog="system" id="3jc-tI-Yne"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gnz-a0-rfj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1LZ-EL-owY" kind="relationship" relationship="rootViewController" id="h9v-vN-abF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIk-wT-EJr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1375.3623188405797" y="1518.75"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Favorite" width="32" height="32"/>
+        <image name="circle.grid.hex.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>
