@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2808E7E121670F3D00CF285E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2808E7E021670F3D00CF285E /* Reachability.swift */; };
 		2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822B13F214E083D00986774 /* FavoritesTableViewController.swift */; };
 		28827CAB213F828C003EBC8F /* shiba-8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 28827CAA213F828C003EBC8F /* shiba-8.JPG */; };
 		28ED27AB2169345B00471691 /* instruction-image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ED27AA2169345B00471691 /* instruction-image2.png */; };
@@ -28,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2808E7E021670F3D00CF285E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2822B13F214E083D00986774 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		28827CAA213F828C003EBC8F /* shiba-8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "shiba-8.JPG"; sourceTree = "<group>"; };
 		28ED27AA2169345B00471691 /* instruction-image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instruction-image2.png"; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				7C96A8CE214D8600009496CF /* DataController.swift */,
 				7CCF5EB721630B3600A95D90 /* DogClient.swift */,
 				7CCF5EB921630BD400A95D90 /* DogConstants.swift */,
-				2808E7E021670F3D00CF285E /* Reachability.swift */,
 				7C89000C228FCCB800617EA7 /* DogModel.swift */,
 			);
 			path = Model;
@@ -276,7 +273,6 @@
 				2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */,
 				7CCF5EBA21630BD400A95D90 /* DogConstants.swift in Sources */,
 				7C89000D228FCCB800617EA7 /* DogModel.swift in Sources */,
-				2808E7E121670F3D00CF285E /* Reachability.swift in Sources */,
 				7CBA0924213E19CF00B96781 /* AppDelegate.swift in Sources */,
 				7C367F0D214ED56D0058C888 /* FavoriteDogTableViewCell.swift in Sources */,
 				7C869053229067B600D198FC /* RandomDogImage.swift in Sources */,
