@@ -72,8 +72,15 @@ class DogGraphViewController: UIViewController {
     
     
     func pieChartUpdate() {
+        let dataSet = PieChartDataSet(entries: [], label: nil)
+        
+        
         guard let fetchedObjects = fetchedResultsController.fetchedObjects, !fetchedObjects.isEmpty else {
             print("no fetched objects")
+            let data = PieChartData(dataSet: dataSet)
+            pieChart.data = data
+            pieChart.notifyDataSetChanged()
+            pieChart.centerText = "No Dogs to Display"
             return
         }
         
@@ -87,7 +94,7 @@ class DogGraphViewController: UIViewController {
         //print(counts)
         let keys = counts.keys.sorted()
         //print(keys)
-        let dataSet = PieChartDataSet(entries: [], label: nil)
+        
         
         for key in keys {
             let entry = PieChartDataEntry(value: Double(counts[key] ?? 0), label: key)
@@ -98,8 +105,9 @@ class DogGraphViewController: UIViewController {
         pieChart.data = data
         
 
-        //All other additions to this function will go here
+        //All other style additions to this function will go here
         dataSet.colors = ChartColorTemplates.pastel()
+        pieChart.centerText = "Your Favorite Dogs"
 
         //This must stay at end of function
         pieChart.notifyDataSetChanged()
