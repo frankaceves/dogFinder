@@ -12,6 +12,7 @@
 		28827CAB213F828C003EBC8F /* shiba-8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 28827CAA213F828C003EBC8F /* shiba-8.JPG */; };
 		28ED27AB2169345B00471691 /* instruction-image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ED27AA2169345B00471691 /* instruction-image2.png */; };
 		7C367F0D214ED56D0058C888 /* FavoriteDogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C367F0C214ED56D0058C888 /* FavoriteDogTableViewCell.swift */; };
+		7C5CE7472320763600F42DE3 /* DogGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5CE7462320763600F42DE3 /* DogGraphViewController.swift */; };
 		7C869053229067B600D198FC /* RandomDogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C869052229067B600D198FC /* RandomDogImage.swift */; };
 		7C89000D228FCCB800617EA7 /* DogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89000C228FCCB800617EA7 /* DogModel.swift */; };
 		7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C96A8CA214D8258009496CF /* DogFinder.xcdatamodeld */; };
@@ -32,6 +33,7 @@
 		28827CAA213F828C003EBC8F /* shiba-8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "shiba-8.JPG"; sourceTree = "<group>"; };
 		28ED27AA2169345B00471691 /* instruction-image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instruction-image2.png"; sourceTree = "<group>"; };
 		7C367F0C214ED56D0058C888 /* FavoriteDogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDogTableViewCell.swift; sourceTree = "<group>"; };
+		7C5CE7462320763600F42DE3 /* DogGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogGraphViewController.swift; sourceTree = "<group>"; };
 		7C869052229067B600D198FC /* RandomDogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDogImage.swift; sourceTree = "<group>"; };
 		7C89000C228FCCB800617EA7 /* DogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogModel.swift; sourceTree = "<group>"; };
 		7C96A8CB214D8258009496CF /* DogFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DogFinder.xcdatamodel; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				7CBA0923213E19CF00B96781 /* AppDelegate.swift */,
 				7CBA0925213E19CF00B96781 /* RandomDogViewController.swift */,
 				2822B13F214E083D00986774 /* FavoritesTableViewController.swift */,
+				7C5CE7462320763600F42DE3 /* DogGraphViewController.swift */,
 				7CBA0927213E19CF00B96781 /* Main.storyboard */,
 				7CBA092A213E19CF00B96781 /* Assets.xcassets */,
 				7CBA092C213E19CF00B96781 /* LaunchScreen.storyboard */,
@@ -134,7 +137,6 @@
 				E2300E087CF1DF2D55A3AD68 /* Pods-dogFinder.debug.xcconfig */,
 				CAA432EB4288EBFDB57B18B3 /* Pods-dogFinder.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -268,6 +270,7 @@
 			files = (
 				7CBA0926213E19CF00B96781 /* RandomDogViewController.swift in Sources */,
 				7C96A8CF214D8600009496CF /* DataController.swift in Sources */,
+				7C5CE7472320763600F42DE3 /* DogGraphViewController.swift in Sources */,
 				7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */,
 				7CCF5EB821630B3600A95D90 /* DogClient.swift in Sources */,
 				2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */,
