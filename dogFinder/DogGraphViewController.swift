@@ -8,37 +8,85 @@
 
 import UIKit
 import Charts
+import CoreData
 
 class DogGraphViewController: UIViewController {
+    var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var dataController: DataController!
+    
     
     @IBOutlet weak var pieChart: PieChartView!
     
-    let breedsArray: [String] = ["Terrier", "Terrier", "Hound", "Hound", "Mastiff"]
+    var breedsArray: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pieChartUpdate()
+        //pieChartUpdate()
+        dataController = appDelegate.dataController
+        
+        if fetchedResultsController == nil {
+            //print("fetch results controller is nil")
+            setupFetchedResultsController()
+        }
+        
     }
     
     //add fetch here somewhere
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pieChartUpdate()
+        checkForUpdates()
+        
+        if fetchedResultsController != nil {
+            pieChartUpdate()
+        }
+        
+        
     }
     
-    @IBAction func renderCharts() {
-        pieChartUpdate()
+    func checkForUpdates() {
+        if dataController != nil {
+                do {
+                    try fetchedResultsController.performFetch()
+                } catch {
+                    fatalError("error checking for update fetch: \(error.localizedDescription)")
+                }
+        }
+    }
+    
+    fileprivate func setupFetchedResultsController() {
+        let fetchRequest: NSFetchRequest<FavoriteDog> = FavoriteDog.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "breed", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("error fetching favorites in FavTableVC: \(error.localizedDescription)")
+        }
     }
     
     
     
     func pieChartUpdate() {
+        guard let fetchedObjects = fetchedResultsController.fetchedObjects, !fetchedObjects.isEmpty else {
+            print("no fetched objects")
+            return
+        }
+        
+        //print("fetchedObjects: \(fetchedObjects)")
+        breedsArray = fetchedObjects.map { $0.breed! }
+        //print("breedsArray: \(breedsArray)")
+        
         //future home of bar chart code
         let mappedItems = breedsArray.map { ($0, 1) }
         let counts = Dictionary(mappedItems, uniquingKeysWith: +)
-        print(counts)
-        let keys = counts.keys
-        print(keys)
+        //print(counts)
+        let keys = counts.keys.sorted()
+        //print(keys)
         let dataSet = PieChartDataSet(entries: [], label: nil)
         
         for key in keys {
