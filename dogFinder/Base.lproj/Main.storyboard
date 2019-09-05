@@ -178,20 +178,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Favorite Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxn-Uh-VkK">
-                                        <rect key="frame" x="8" y="8" width="398" height="36"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="evH-eY-Oje" firstAttribute="top" secondItem="B63-98-yDq" secondAttribute="top" id="0Fc-rz-qX7"/>
                                     <constraint firstAttribute="bottom" secondItem="evH-eY-Oje" secondAttribute="bottom" id="0vY-Ia-9ho"/>
-                                    <constraint firstAttribute="trailing" secondItem="rxn-Uh-VkK" secondAttribute="trailing" constant="8" id="65T-G6-82l"/>
-                                    <constraint firstItem="rxn-Uh-VkK" firstAttribute="top" secondItem="B63-98-yDq" secondAttribute="top" constant="8" id="SPv-3U-xSu"/>
                                     <constraint firstAttribute="trailing" secondItem="evH-eY-Oje" secondAttribute="trailing" id="hIw-g6-1ha"/>
-                                    <constraint firstItem="rxn-Uh-VkK" firstAttribute="leading" secondItem="B63-98-yDq" secondAttribute="leading" constant="8" id="izl-sP-HQc"/>
                                     <constraint firstItem="evH-eY-Oje" firstAttribute="leading" secondItem="B63-98-yDq" secondAttribute="leading" id="xKm-tU-T7U"/>
                                 </constraints>
                             </view>
