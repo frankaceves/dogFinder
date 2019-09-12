@@ -21,6 +21,7 @@
 		7CBA0929213E19CF00B96781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA0927213E19CF00B96781 /* Main.storyboard */; };
 		7CBA092B213E19CF00B96781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA092A213E19CF00B96781 /* Assets.xcassets */; };
 		7CBA092E213E19CF00B96781 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA092C213E19CF00B96781 /* LaunchScreen.storyboard */; };
+		7CCED4392329EAE100231D9E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCED4382329EAE100231D9E /* GameViewController.swift */; };
 		7CCF5EB821630B3600A95D90 /* DogClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF5EB721630B3600A95D90 /* DogClient.swift */; };
 		7CCF5EBA21630BD400A95D90 /* DogConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCF5EB921630BD400A95D90 /* DogConstants.swift */; };
 		E55D94910269539314D266AE /* Pods_dogFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B668B8417516DABF5A7EAD28 /* Pods_dogFinder.framework */; };
@@ -43,6 +44,7 @@
 		7CBA092A213E19CF00B96781 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CBA092D213E19CF00B96781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CBA092F213E19CF00B96781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CCED4382329EAE100231D9E /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7CCF5EB721630B3600A95D90 /* DogClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogClient.swift; sourceTree = "<group>"; };
 		7CCF5EB921630BD400A95D90 /* DogConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogConstants.swift; sourceTree = "<group>"; };
 		B668B8417516DABF5A7EAD28 /* Pods_dogFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dogFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 				7CBA0925213E19CF00B96781 /* RandomDogViewController.swift */,
 				2822B13F214E083D00986774 /* FavoritesTableViewController.swift */,
 				7C5CE7462320763600F42DE3 /* DogGraphViewController.swift */,
+				7CCED4382329EAE100231D9E /* GameViewController.swift */,
 				7CBA0927213E19CF00B96781 /* Main.storyboard */,
 				7CBA092A213E19CF00B96781 /* Assets.xcassets */,
 				7CBA092C213E19CF00B96781 /* LaunchScreen.storyboard */,
@@ -271,6 +274,7 @@
 				7C96A8CF214D8600009496CF /* DataController.swift in Sources */,
 				7C5CE7472320763600F42DE3 /* DogGraphViewController.swift in Sources */,
 				7C96A8CC214D8258009496CF /* DogFinder.xcdatamodeld in Sources */,
+				7CCED4392329EAE100231D9E /* GameViewController.swift in Sources */,
 				7CCF5EB821630B3600A95D90 /* DogClient.swift in Sources */,
 				2822B140214E083D00986774 /* FavoritesTableViewController.swift in Sources */,
 				7CCF5EBA21630BD400A95D90 /* DogConstants.swift in Sources */,
