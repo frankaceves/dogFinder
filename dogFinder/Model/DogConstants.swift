@@ -13,6 +13,11 @@ extension DogClient {
             let message: String
         }
         
+        struct ThreeRandomDogs: Decodable {
+            let status: String
+            let message: [String]
+        }
+        
         struct AllDogBreeds: Decodable {
             let status: String
             let message: [String: [String]]
