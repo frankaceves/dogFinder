@@ -30,6 +30,7 @@ extension DogClient {
         //RANDOM DOG JSON
         struct APIUrls {
             static let randomDogAPIString = "https://dog.ceo/api/breeds/image/random"
+            static let threeDogAPIString = "https://dog.ceo/api/breeds/image/random/3"
         }
         
     }
