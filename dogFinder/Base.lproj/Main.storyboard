@@ -203,7 +203,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jow-Vw-8jB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2285.507246376812" y="1518.75"/>
+            <point key="canvasLocation" x="1414" y="1196"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="28R-KV-Dkr">
+            <objects>
+                <viewController id="Epe-hQ-DUS" userLabel="Game View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xMv-ZK-4Fu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ec1-zZ-OhE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xAY-l2-mk2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YVA-fP-kAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1413" y="1902"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ItZ-DA-jCP">
@@ -218,6 +234,7 @@
                         <segue destination="GVl-BW-vOP" kind="relationship" relationship="viewControllers" id="mGy-aO-GUT"/>
                         <segue destination="5Je-na-oe0" kind="relationship" relationship="viewControllers" id="EUX-g9-dlJ"/>
                         <segue destination="XEj-p5-x7F" kind="relationship" relationship="viewControllers" id="OSp-in-XIF"/>
+                        <segue destination="6Fi-Z0-mRZ" kind="relationship" relationship="viewControllers" id="Zkx-0h-j79"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADH-1k-X2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,7 +296,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIk-wT-EJr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375.3623188405797" y="1518.75"/>
+            <point key="canvasLocation" x="561" y="1197"/>
+        </scene>
+        <!--Game Navigation Controller-->
+        <scene sceneID="8YR-qH-ePP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Fi-Z0-mRZ" userLabel="Game Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Game" id="Fzn-q3-1he"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lOj-TE-5Zf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Epe-hQ-DUS" kind="relationship" relationship="rootViewController" id="0V6-sE-sW6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="stp-SC-Sv4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="1902"/>
         </scene>
     </scenes>
     <resources>
