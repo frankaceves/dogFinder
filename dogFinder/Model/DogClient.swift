@@ -35,6 +35,44 @@ class DogClient: NSObject {
         }.resume()
     }
     
+    func getThreeRandomDogs(completion3RandomDogs: @escaping (_ dog: [Dog]?, _ error: String?) -> Void) {
+        let randomDogURL = URL(string: Constants.APIUrls.threeDogAPIString)!
+        let request = URLRequest(url: randomDogURL)
+        
+        let _ = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard (error == nil) else {
+                completion3RandomDogs(nil, error!.localizedDescription)
+                return
+            }
+            
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode < 299 else {
+                completion3RandomDogs(nil, "Status code error 3randDogs, code not less than 299")
+                return
+            }
+            
+            guard let data = data else {
+                completion3RandomDogs(nil, "no data returned in 3randDogs")
+                return
+            }
+            
+            //self.convertToJSONFrom(randomDogData: data, completionForJSONConversion: completionForGet)
+            var decodedResults: Constants.ThreeRandomDogs
+            var dogs: [Dog] = []
+            
+            do {
+                decodedResults = try JSONDecoder().decode(Constants.ThreeRandomDogs.self, from: data)
+                for result in decodedResults.message {
+                    var dog = Dog(urlString: result)
+                    dog.getBreedAndSubBreed()
+                    dogs.append(dog)
+                }
+                completion3RandomDogs(dogs, nil)
+            } catch {
+                completion3RandomDogs(nil, "error in jsonconversion 3randDogs: \(error.localizedDescription)")
+            }
+            
+        }.resume()
+    }
     
     func showRandomDog(completionForShowRandomDog: @escaping (_ image: UIImage?, _ imageData: Data?,_ urlString: String?, _ error: String?) -> Void) {
         
