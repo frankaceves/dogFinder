@@ -212,14 +212,25 @@
                     <view key="view" contentMode="scaleToFill" id="xMv-ZK-4Fu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EdT-fW-6nB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EdT-fW-6nB" firstAttribute="trailing" secondItem="ec1-zZ-OhE" secondAttribute="trailing" id="EXn-dG-ayw"/>
+                            <constraint firstItem="EdT-fW-6nB" firstAttribute="bottom" secondItem="ec1-zZ-OhE" secondAttribute="bottom" id="dYc-Ar-R1S"/>
+                            <constraint firstItem="EdT-fW-6nB" firstAttribute="leading" secondItem="ec1-zZ-OhE" secondAttribute="leading" id="uTd-Zn-L7k"/>
+                            <constraint firstItem="EdT-fW-6nB" firstAttribute="top" secondItem="ec1-zZ-OhE" secondAttribute="top" id="voe-ag-ZS5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ec1-zZ-OhE"/>
                     </view>
                     <navigationItem key="navigationItem" id="xAY-l2-mk2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVA-fP-kAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1413" y="1902"/>
+            <point key="canvasLocation" x="1410.144927536232" y="1901.7857142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ItZ-DA-jCP">
