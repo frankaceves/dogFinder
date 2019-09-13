@@ -379,7 +379,7 @@
         <scene sceneID="BoN-Sb-Ih8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XEj-p5-x7F" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dog Graph" image="circle.grid.hex.fill" catalog="system" id="3jc-tI-Yne"/>
+                    <tabBarItem key="tabBarItem" title="Dog Graph" image="pieChart-34-pdf" selectedImage="pieChart-34-pdf" id="3jc-tI-Yne"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gnz-a0-rfj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -398,7 +398,7 @@
         <scene sceneID="8YR-qH-ePP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Fi-Z0-mRZ" userLabel="Game Navigation Controller" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Game" id="Fzn-q3-1he"/>
+                    <tabBarItem key="tabBarItem" title="Game" image="strat-34" selectedImage="strat-34" id="Fzn-q3-1he"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lOj-TE-5Zf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -416,6 +416,7 @@
     </scenes>
     <resources>
         <image name="Favorite" width="32" height="32"/>
-        <image name="circle.grid.hex.fill" catalog="system" width="64" height="56"/>
+        <image name="pieChart-34-pdf" width="34" height="34"/>
+        <image name="strat-34" width="34" height="34"/>
     </resources>
 </document>
