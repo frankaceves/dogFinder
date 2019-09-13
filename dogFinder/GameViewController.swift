@@ -42,10 +42,24 @@ class GameViewController: UIViewController {
         //setup game
         setupGame()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "RESET GAME", style: .plain, target: self, action: #selector(setupGame))
+        configureButtons()
     }
     
     
     // MARK: - ACTIONS
+    func configureButtons() {
+        Button1.layer.cornerRadius = 10
+        Button1.backgroundColor = .lightGray
+        Button1.tintColor = .white
+        Button2.layer.cornerRadius = 10
+        Button2.backgroundColor = .lightGray
+        Button2.tintColor = .white
+        Button3.layer.cornerRadius = 10
+        Button3.backgroundColor = .lightGray
+        Button3.tintColor = .white
+    }
+    
+    
     @objc func setupGame() {
         round = 1
         score = 0
