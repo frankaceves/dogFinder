@@ -118,7 +118,19 @@ class GameViewController: UIViewController {
         }
     }
     
-    
+    func checkRound() {
+        if round == 10 {
+            let ac = UIAlertController(title: "Game Over!", message: "Your Score is \(score).", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Start Over", style: .default) { (action) in
+                self.setupGame()
+            }
+            ac.addAction(okAction)
+            present(ac, animated: true, completion: nil)
+        } else {
+            round += 1
+            setupRound()
+        }
+    }
     
     @IBAction func checkAnswer(_ sender: UIButton) {
         print("tapped: \(sender.titleLabel!.text!)")
@@ -126,13 +138,11 @@ class GameViewController: UIViewController {
         if sender.tag == correctDogNumber {
             print("correct!")
             score += 1
-            round += 1
-            setupRound()
+            checkRound()
             
         } else {
             print("INCORRECT!")
-            round += 1
-            setupRound()
+            checkRound()
         }
     }
     
