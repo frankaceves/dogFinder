@@ -268,8 +268,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="PIa-LP-In9" firstAttribute="top" secondItem="RRw-xY-97j" secondAttribute="top" id="6FM-6R-g1R"/>
                                                     <constraint firstItem="PIa-LP-In9" firstAttribute="leading" secondItem="RRw-xY-97j" secondAttribute="leading" id="GSN-hb-3VX"/>
@@ -289,8 +287,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="q6t-u6-wfI" firstAttribute="leading" secondItem="ZX9-ll-2Ho" secondAttribute="leading" id="KU0-SU-Ian"/>
                                                     <constraint firstAttribute="trailing" secondItem="q6t-u6-wfI" secondAttribute="trailing" id="Nsb-vX-Jep"/>
@@ -310,8 +306,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="3tu-aC-dKH" firstAttribute="top" secondItem="gLf-kK-Hrj" secondAttribute="top" id="Wcj-8f-i25"/>
                                                     <constraint firstAttribute="width" constant="150" id="WnV-KG-hoe"/>
