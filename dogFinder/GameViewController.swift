@@ -14,7 +14,10 @@ import UIKit
 class GameViewController: UIViewController {
     // MARK: - PROPERTIES
     let dogClient = DogClient()
+    var resultAC = UIAlertController()
     var correctDogNumber = Int()
+    var correctBreed = String()
+    
     var round: Int = 0 {
         didSet {
             roundLabel.text = "Round: \(round)"
@@ -85,7 +88,7 @@ class GameViewController: UIViewController {
             let correctDog = dogs[randomNumber]
             
             self.correctDogNumber = randomNumber
-            //print("correctDog: \(correctDog)")
+            self.correctBreed = correctDog.breed
             
             if let dogData = try? Data(contentsOf: URL(string: correctDog.urlString)!) {
                 dogs[randomNumber].imageData = dogData
@@ -113,23 +116,32 @@ class GameViewController: UIViewController {
                     self.Button3.setTitle(dogs[2].breed, for: .normal)
                 }
                 
-                
+                self.resultAC.dismiss(animated: true, completion: nil)
             }
         }
     }
     
     func checkRound() {
         if round == 10 {
-            let ac = UIAlertController(title: "Game Over!", message: "Your Score is \(score).", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Start Over", style: .default) { (action) in
-                self.setupGame()
-            }
-            ac.addAction(okAction)
-            present(ac, animated: true, completion: nil)
+            resultAC.dismiss(animated: true, completion: endGame)
         } else {
             round += 1
             setupRound()
         }
+    }
+    
+    func endGame() {
+        let ac = UIAlertController(title: "Game Over!", message: "Your Score is \(score).", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Start Over", style: .default) { (action) in
+            self.setupGame()
+        }
+        ac.addAction(okAction)
+        present(ac, animated: true, completion: nil)
+    }
+    
+    func showResultAlert(result: String) {
+        resultAC = UIAlertController(title: result, message: nil, preferredStyle: .alert)
+        present(resultAC, animated: true)
     }
     
     @IBAction func checkAnswer(_ sender: UIButton) {
@@ -138,10 +150,11 @@ class GameViewController: UIViewController {
         if sender.tag == correctDogNumber {
             print("correct!")
             score += 1
+            showResultAlert(result: "Correct!")
             checkRound()
-            
         } else {
             print("INCORRECT!")
+            showResultAlert(result: "Incorrect!\nCorrect Answer: \(correctBreed)")
             checkRound()
         }
     }
