@@ -146,8 +146,13 @@ class RandomDogViewController: UIViewController {
         case true:
             currentDog = nil
             favoritesButton.tintColor = nil
-            activityIndicator.frame = randomDogImageView.bounds
-            randomDogImageView.addSubview(activityIndicator)
+            
+            let mainWrapperView = randomDogImageView.superview!
+            mainWrapperView.backgroundColor = .yellow
+            activityIndicator.frame = mainWrapperView.bounds
+            activityIndicator.center = CGPoint(x: mainWrapperView.frame.width / 2, y: mainWrapperView.frame.height / 2)
+            mainWrapperView.addSubview(activityIndicator)
+
             randomDogImageView.alpha = 0.5
             activityIndicator.startAnimating()
             breedSegControl.selectedSegmentIndex = 0
