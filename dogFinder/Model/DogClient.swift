@@ -16,7 +16,7 @@ class DogClient: NSObject {
         
         taskForGetMethod(urlRequest: request) { (results, error) in
             guard error == nil else {
-                completionRandom(nil, "error getting Dog")
+                completionRandom(nil, "error getting Dog: \(error!)")
                 return
             }
             
