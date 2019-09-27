@@ -43,7 +43,7 @@ struct Dog {
         }
         
         guard let data = try? Data(contentsOf: url) else {
-            print("can't get data from url")
+            print("can't get data from url: \(urlString)")
             return
         }
         
