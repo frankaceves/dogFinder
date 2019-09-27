@@ -10,6 +10,10 @@ import UIKit
 import CoreData
 import Reachability
 
+enum LoadState {
+    case loading, notLoading, error
+}
+
 class RandomDogViewController: UIViewController {
     
     @IBOutlet var randomDogImageView: UIImageView!
@@ -66,6 +70,8 @@ class RandomDogViewController: UIViewController {
     
     @objc func reachabilityChanged(note: Notification) {
         let reachability = note.object as! Reachability
+        
+        let ac = UIAlertController(title: "Network Error", message: "Your phone has lost its connection", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel)
         
         switch reachability.connection {
@@ -78,14 +84,13 @@ class RandomDogViewController: UIViewController {
             favoritesButton.isEnabled = shouldEnable()
             self.view.alpha = 1.0
         case .none:
-            let ac = UIAlertController(title: "Network Error", message: "Your phone has lost its connection", preferredStyle: .alert)
             ac.addAction(okAction)
             
             reloadButton.isEnabled = false
             favoritesButton.isEnabled = false
             self.view.alpha = 0.25
             
-            present(ac, animated: true, completion: nil)
+            //present(ac, animated: true, completion: nil)
         }
     }
     
@@ -136,19 +141,22 @@ class RandomDogViewController: UIViewController {
         }
     }
     
-    func configureLoadView(isLoading: Bool) {
+    func configureLoadView(state: LoadState) {
         //disable/enable these on load
-        reloadButton.isEnabled = !isLoading
-        favoritesButton.isEnabled = !isLoading
-        breedSegControl.isEnabled = !isLoading
+//        reloadButton.isEnabled = !isLoading
+//        favoritesButton.isEnabled = !isLoading
+//        breedSegControl.isEnabled = !isLoading
         
-        switch isLoading { //configure non-boolean view related objects
-        case true:
-            currentDog = nil
+        switch state { //configure non-boolean view related objects
+        case .loading:
+            print("STATE: loading")
+            reloadButton.isEnabled = false
+            favoritesButton.isEnabled = false
+            breedSegControl.isEnabled = false
+            
             favoritesButton.tintColor = nil
             
             let mainWrapperView = randomDogImageView.superview!
-            mainWrapperView.backgroundColor = .yellow
             activityIndicator.frame = mainWrapperView.bounds
             activityIndicator.center = CGPoint(x: mainWrapperView.frame.width / 2, y: mainWrapperView.frame.height / 2)
             mainWrapperView.addSubview(activityIndicator)
@@ -156,33 +164,64 @@ class RandomDogViewController: UIViewController {
             randomDogImageView.alpha = 0.5
             activityIndicator.startAnimating()
             breedSegControl.selectedSegmentIndex = 0
-        default: //false - not loading
+            
+        case .notLoading: //false - not loading
+            print("STATE: NOT loading")
             randomDogImageView.alpha = 1.0
             breedLabel.isHidden = false
             activityIndicator.stopAnimating()
+            reloadButton.isEnabled = true
+            favoritesButton.isEnabled = true
+            breedSegControl.isEnabled = true
+            
+        case .error:
+            print("STATE: ERROR")
+            activityIndicator.stopAnimating()
+            reloadButton.isEnabled = true
+            favoritesButton.isEnabled = false
+            breedSegControl.isEnabled = false
+            let ac = UIAlertController(title: "Error", message: "There was an error.  Please click the refresh button", preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default)
+            ac.addAction(okButton)
+            present(ac, animated: true)
         }
     }
     
     @IBAction func randomDogButtonPressed(_ sender: Any) {
-        configureLoadView(isLoading: true)
+        currentDog = nil
+        configureLoadView(state: .loading)
         
         DogClient.sharedInstance.showRandomDog { [unowned self] (dog, error) in
             guard error == nil else {
+                print("error in ShowRandomDog: \(error!)")
+                print("current Reachability: \(self.reachability.connection)")
+                DispatchQueue.main.async {
+                    self.configureLoadView(state: .error)
+                }
                 return
             }
+
+            // rewrite this to prevent a throwing guard func
             guard let dog = dog else {
+                print("no random dog to show")
+                
                 return
             }
             
             self.currentDog = dog
             
+            
             DispatchQueue.main.async {
-                let image = RandomDogImage()
+                let image = RandomDogImage().getImageFrom(dog.imageData)
                 
-                self.randomDogImageView.image = image.getImageFrom(dog.imageData)
-                self.configureLoadView(isLoading: false)
+                //self.randomDogImageView.image = image.getImageFrom(dog.imageData)
+                self.randomDogImageView.image = image
+                self.configureLoadView(state: .notLoading)
                 self.breedLabel.text = dog.breed
                 // MARK: TODO: CHECK IF DOG IS FAVORITE
+                if self.isFavorite(dog: dog) {
+                    self.favoritesButton.tintColor = .red
+                }
             }
         }
     }
