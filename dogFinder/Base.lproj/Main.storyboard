@@ -211,7 +211,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vCk-iM-8ft"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6N2-eM-omV"/>
+                    <navigationItem key="navigationItem" title="Dog Graph" id="6N2-eM-omV"/>
                     <connections>
                         <outlet property="pieChart" destination="evH-eY-Oje" id="Khx-f3-j68"/>
                     </connections>
