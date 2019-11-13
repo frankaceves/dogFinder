@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p5m-Ba-PKX">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p5m-Ba-PKX">
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -98,7 +98,7 @@
         <scene sceneID="fG7-ic-7nt">
             <objects>
                 <tableViewController id="Zhq-FN-5Gs" userLabel="Favorites Table View Controller" customClass="FavoritesTableViewController" customModule="dogFinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="jX6-OI-Ysg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="jX6-OI-Ysg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,7 +111,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy5-ku-ws2" userLabel="Wrapper View">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="342"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OUm-yX-yUD">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="281.33333333333331"/>
@@ -120,7 +120,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63Q-Z4-Isv" userLabel="Label Wrapper View">
-                                                    <rect key="frame" x="0.0" y="305.66666666666669" width="375" height="36.333333333333314"/>
+                                                    <rect key="frame" x="0.0" y="313.66666666666669" width="375" height="36.333333333333314"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MX5-kH-r7M">
                                                             <rect key="frame" x="8" y="7.9999999999999982" width="359" height="20.333333333333329"/>
@@ -138,7 +138,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstItem="OUm-yX-yUD" firstAttribute="leading" secondItem="Dy5-ku-ws2" secondAttribute="leading" id="07b-xx-gFu"/>
                                                 <constraint firstAttribute="trailing" secondItem="63Q-Z4-Isv" secondAttribute="trailing" id="81M-K4-Cg8"/>
@@ -151,7 +151,7 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Dy5-ku-ws2" secondAttribute="bottom" constant="8" id="CTp-1A-cOR"/>
+                                        <constraint firstAttribute="bottom" secondItem="Dy5-ku-ws2" secondAttribute="bottom" id="CTp-1A-cOR"/>
                                         <constraint firstItem="Dy5-ku-ws2" firstAttribute="leading" secondItem="2nx-we-1av" secondAttribute="leading" id="JeW-s6-set"/>
                                         <constraint firstAttribute="trailing" secondItem="Dy5-ku-ws2" secondAttribute="trailing" id="R3E-uM-oxe"/>
                                         <constraint firstItem="Dy5-ku-ws2" firstAttribute="top" secondItem="2nx-we-1av" secondAttribute="top" id="iSe-M5-1al"/>
@@ -409,7 +409,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="GVl-BW-vOP" kind="relationship" relationship="viewControllers" id="mGy-aO-GUT"/>
-                        <segue destination="5Je-na-oe0" kind="relationship" relationship="viewControllers" id="EUX-g9-dlJ"/>
+                        <segue destination="5Je-na-oe0" kind="relationship" relationship="viewControllers" id="l97-O7-8pj"/>
                         <segue destination="XEj-p5-x7F" kind="relationship" relationship="viewControllers" id="OSp-in-XIF"/>
                         <segue destination="6Fi-Z0-mRZ" kind="relationship" relationship="viewControllers" id="Zkx-0h-j79"/>
                     </connections>
@@ -441,7 +441,6 @@
         <scene sceneID="d5n-Q5-h7H">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Je-na-oe0" userLabel="Favorites Navigation Controller" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="y9K-6g-6Hk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uLV-7e-2C5">
@@ -450,7 +449,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Zhq-FN-5Gs" kind="relationship" relationship="rootViewController" id="VxF-6w-kZN"/>
+                        <segue destination="Zhq-FN-5Gs" kind="relationship" relationship="rootViewController" id="Hdj-56-hQd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8es-9r-YHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
