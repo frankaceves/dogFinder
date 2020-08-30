@@ -25,7 +25,7 @@ class RandomDogViewController: UIViewController {
     var fetchedResultsController: NSFetchedResultsController<FavoriteDog>!
     
     var dataController: DataController!
-    let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
     
     var currentDog: Dog!
     var breedArray: [String]!
