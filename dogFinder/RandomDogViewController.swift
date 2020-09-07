@@ -37,10 +37,16 @@ class RandomDogViewController: UIViewController {
         breedLabel.isHidden = true
         activityIndicator.color = UIColor.blue
         randomDogButtonPressed(self)
+        configureFavoriteButton()
     }
     
     let reachability = Reachability()!
     
+    func configureFavoriteButton() {
+        if #available(iOS 13.0, *) {
+            favoritesButton.image = UIImage(systemName: "heart")
+        }
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         reachability.stopNotifier()
@@ -266,10 +272,12 @@ class RandomDogViewController: UIViewController {
         if isFavorite(dog: currentDog) == true {
             removeDog(dogInfo: currentDog)
             favoritesButton.tintColor = nil
+            favoritesButton.image = UIImage(systemName: "heart")
             try? fetchedResultsController.performFetch()
         } else {
             addDog(dogInfo: currentDog)
             favoritesButton.tintColor = UIColor.red
+            favoritesButton.image = UIImage(systemName: "heart.fill")
             try? fetchedResultsController.performFetch()
         }
     }
